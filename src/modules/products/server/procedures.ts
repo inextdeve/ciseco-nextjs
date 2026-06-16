@@ -20,11 +20,12 @@ export const productsRouter = createTRPCRouter({
         page: z.number().int().min(1).default(DEFAULT_PAGE),
         pageSize: z.number().int().min(MIN_PAGE_SIZE).max(MAX_PAGE_SIZE).default(DEFAULT_PAGE_SIZE),
         search: z.string().nullish(),
+        collection: z.string().nullish(),
       })
     )
     .query(async ({ ctx, input }) => {
       // TODO: Implement pagination and search logic
-      const { page, pageSize, search } = input
+      const { page, pageSize, search, collection } = input
 
       const products = await getProducts()
 

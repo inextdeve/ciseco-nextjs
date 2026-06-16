@@ -3,6 +3,7 @@ import { FilterSortByMenuListBox } from '@/components/FilterSortByMenu'
 import { FiltersMenuTabs } from '@/components/FiltersMenu'
 import ProductCard from '@/components/ProductCard'
 import { getProducts } from '@/data/data'
+import CollectionSlugView from '@/modules/collections/ui/views/collectionSlugView'
 import {
   Pagination,
   PaginationList,
@@ -17,6 +18,7 @@ export default async function Page({ params }: { params: Promise<{ handle: strin
 
   return (
     <main>
+      <CollectionSlugView slug={handle} />
       {/* TABS FILTER */}
       <div className="flex flex-wrap items-center gap-2.5">
         <FiltersMenuTabs />
