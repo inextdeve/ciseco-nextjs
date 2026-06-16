@@ -27,7 +27,9 @@ export default async function Page({ params }: { params: Promise<{ handle: strin
 
       {/* LOOP ITEMS */}
       <div className="mt-8 grid gap-x-8 gap-y-10 sm:grid-cols-2 lg:mt-10 lg:grid-cols-3 xl:grid-cols-4">
-        {products?.map((produc) => <ProductCard data={produc} key={produc.id} />)}
+        {products?.map((produc) => (
+          <ProductCard data={produc} key={produc.id} />
+        ))}
       </div>
 
       {/* PAGINATION */}

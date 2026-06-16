@@ -1,5 +1,6 @@
 import Aside from '@/components/aside'
 import '@/styles/tailwind.css'
+import { TRPCReactProvider } from '@/trpc/client'
 import { Metadata } from 'next'
 import { Poppins } from 'next/font/google'
 import GlobalClient from './GlobalClient'
@@ -22,16 +23,17 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={poppins.className}>
-      <body className="bg-white text-neutral-900 dark:bg-neutral-900 dark:text-neutral-200">
-        <Aside.Provider>
-          {children}
+    <TRPCReactProvider>
+      <html lang="en" className={poppins.className}>
+        <body className="bg-white text-neutral-900 dark:bg-neutral-900 dark:text-neutral-200">
+          <Aside.Provider>
+            {children}
 
-          {/* Client component: Toaster, ... */}
-          <GlobalClient />
-
-        </Aside.Provider>
-      </body>
-    </html>
+            {/* Client component: Toaster, ... */}
+            <GlobalClient />
+          </Aside.Provider>
+        </body>
+      </html>
+    </TRPCReactProvider>
   )
 }
