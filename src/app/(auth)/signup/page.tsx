@@ -1,4 +1,4 @@
-import { SignUpView } from '@/models/auth/ui/views/sign-up-views'
+import { SignUpView } from '@/modules/auth/ui/views/sign-up-views'
 import { Metadata } from 'next'
 
 export const metadata: Metadata = {
