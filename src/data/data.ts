@@ -9,38 +9,32 @@ import boothImage1 from '@/images/collections/booth1.png'
 import boothImage2 from '@/images/collections/booth2.png'
 import boothImage3 from '@/images/collections/booth3.png'
 import boothImage4 from '@/images/collections/booth4.png'
-import productImage1_1 from '@/images/products/p1-1.jpg'
-import productImage1_2 from '@/images/products/p1-2.jpg'
-import productImage1_3 from '@/images/products/p1-3.jpg'
 import productImage1 from '@/images/products/p1.jpg'
-import productImage2_1 from '@/images/products/p2-1.jpg'
-import productImage2_2 from '@/images/products/p2-2.jpg'
-import productImage2_3 from '@/images/products/p2-3.jpg'
+
+import charcoalSoap1 from '@/images/products/charcoal_soap_1.webp'
+import charcoalSoap2 from '@/images/products/charcoal_soap_2.webp'
+import charcoalSoap3 from '@/images/products/charcoal_soap_3.webp'
+
+import sidrSoap1 from '@/images/products/sidr_soap_1.webp'
+import sidrSoap2 from '@/images/products/sidr_soap_2.webp'
+import sidrSoap3 from '@/images/products/sidr_soap_3.webp'
+
+import roseSoap1 from '@/images/products/rose_soap_1.webp'
+import roseSoap2 from '@/images/products/rose_soap_2.webp'
+import roseSoap3 from '@/images/products/rose_soap_3.webp'
+import roseSoap4 from '@/images/products/rose_soap_4.webp'
+
+import lavenderSoap1 from '@/images/products/lavender_soap_1.jpg'
+import lavenderSoap2 from '@/images/products/lavender_soap_2.jpg'
+
+import nigellaSoap1 from '@/images/products/nigella_soap_1.webp'
+import nigellaSoap2 from '@/images/products/nigella_soap_2.webp'
+import nigellaSoap3 from '@/images/products/nigella_soap_3.webp'
+import nigellaSoap4 from '@/images/products/nigella_soap_4.webp'
+
 import productImage2 from '@/images/products/p2.jpg'
-import productImage3_1 from '@/images/products/p3-1.jpg'
-import productImage3_2 from '@/images/products/p3-2.jpg'
-import productImage3_3 from '@/images/products/p3-3.jpg'
 import productImage3 from '@/images/products/p3.jpg'
-import productImage4_1 from '@/images/products/p4-1.jpg'
-import productImage4_2 from '@/images/products/p4-2.jpg'
-import productImage4_3 from '@/images/products/p4-3.jpg'
 import productImage4 from '@/images/products/p4.jpg'
-import productImage5_1 from '@/images/products/p5-1.jpg'
-import productImage5_2 from '@/images/products/p5-2.jpg'
-import productImage5_3 from '@/images/products/p5-3.jpg'
-import productImage5 from '@/images/products/p5.jpg'
-import productImage6_1 from '@/images/products/p6-1.jpg'
-import productImage6_2 from '@/images/products/p6-2.jpg'
-import productImage6_3 from '@/images/products/p6-3.jpg'
-import productImage6 from '@/images/products/p6.jpg'
-import productImage7_1 from '@/images/products/p7-1.jpg'
-import productImage7_2 from '@/images/products/p7-2.jpg'
-import productImage7_3 from '@/images/products/p7-3.jpg'
-import productImage7 from '@/images/products/p7.jpg'
-import productImage8_1 from '@/images/products/p8-1.jpg'
-import productImage8_2 from '@/images/products/p8-2.jpg'
-import productImage8_3 from '@/images/products/p8-3.jpg'
-import productImage8 from '@/images/products/p8.jpg'
 import avatarImage1 from '@/images/users/avatar1.jpg'
 import avatarImage2 from '@/images/users/avatar2.jpg'
 import avatarImage3 from '@/images/users/avatar3.jpg'
@@ -675,17 +669,18 @@ export async function getCollections() {
     // default collections 1 - 7
     {
       id: 'gid://1',
-      title: 'Jackets',
-      handle: 'jackets',
-      description: 'Explore our collection of trendy jackets that elevate your outfit.',
+      title: 'Handmade Soap',
+      handle: 'handmade-soap',
+      description:
+        'Discover our handcrafted soaps, made by hand with high-quality natural ingredients. Gentle, moisturizing, and delicately scented, they provide care suitable for all skin types.',
       sortDescription: 'Newest arrivals',
       color: 'bg-indigo-50',
       count: 77,
       image: {
-        src: collectionImage1.src,
-        width: collectionImage1.width,
-        height: collectionImage1.height,
-        alt: 'Explore new arrivals',
+        src: charcoalSoap1.src,
+        width: charcoalSoap1.width,
+        height: charcoalSoap1.height,
+        alt: 'handmade soap',
       },
     },
     {
@@ -1032,42 +1027,30 @@ export async function getCollectionByHandle(handle: string) {
 export async function getProducts() {
   return [
     {
-      id: 'gid://1001',
-      title: 'Leather Tote Bag',
-      handle: 'leather-tote-bag',
+      id: 'gid://10091',
+      title: 'Savon de Petrichor au charbon actif',
+      handle: 'petrichor-soap',
       createdAt: '2025-05-06T10:00:00-04:00',
-      vendor: 'LuxCouture',
-      price: 85,
+      vendor: 'Blissdor',
+      price: 99,
       featuredImage: {
-        src: productImage1.src,
-        width: productImage1.width,
-        height: productImage1.height,
-        alt: 'Leather Tote Bag',
+        src: charcoalSoap1.src,
+        width: charcoalSoap1.width,
+        height: charcoalSoap1.height,
+        alt: 'Savon de Petrichor au charbon actif',
       },
       images: [
         {
-          src: productImage1.src,
-          width: productImage1.width,
-          height: productImage1.height,
-          alt: 'Leather Tote Bag',
+          src: charcoalSoap2.src,
+          width: charcoalSoap2.width,
+          height: charcoalSoap2.height,
+          alt: 'Savon de Petrichor au charbon actif',
         },
         {
-          src: productImage1_1.src,
-          width: productImage1_1.width,
-          height: productImage1_1.height,
-          alt: 'Leather Tote Bag',
-        },
-        {
-          src: productImage1_2.src,
-          width: productImage1_2.width,
-          height: productImage1_2.height,
-          alt: 'Leather Tote Bag',
-        },
-        {
-          src: productImage1_3.src,
-          width: productImage1_3.width,
-          height: productImage1_3.height,
-          alt: 'Leather Tote Bag',
+          src: charcoalSoap3.src,
+          width: charcoalSoap3.width,
+          height: charcoalSoap3.height,
+          alt: 'Savon de Petrichor au charbon actif',
         },
       ],
       reviewNumber: 87,
@@ -1084,27 +1067,6 @@ export async function getProducts() {
                 image: null,
               },
             },
-            {
-              swatch: {
-                color: 'oklch(42.1% 0.095 57.708)',
-                image: null,
-              },
-              name: 'Pink Yarrow',
-            },
-            {
-              swatch: {
-                color: '#D1C9C1',
-                image: null,
-              },
-              name: 'indigo',
-            },
-            {
-              swatch: {
-                color: '#f7e3d4',
-                image: null,
-              },
-              name: 'Stone',
-            },
           ],
         },
         {
@@ -1112,23 +1074,19 @@ export async function getProducts() {
           optionValues: [
             {
               swatch: null,
-              name: 'XXS',
+              name: '50 g',
             },
             {
               swatch: null,
-              name: 'XS',
+              name: '80 g',
             },
             {
               swatch: null,
-              name: 'M',
+              name: '100 g',
             },
             {
               swatch: null,
-              name: 'L',
-            },
-            {
-              swatch: null,
-              name: 'XL',
+              name: '70 g',
             },
           ],
         },
@@ -1136,51 +1094,46 @@ export async function getProducts() {
       selectedOptions: [
         {
           name: 'Color',
-          value: 'Pink Yarrow',
+          value: 'Black',
         },
         {
           name: 'Size',
-          value: 'XS',
+          value: '50 g',
         },
       ],
+      collections: ['1'],
     },
     {
       id: 'gid://1002',
-      title: 'Silk Midi Dress',
-      handle: 'silk-midi-dress',
+      title: 'Savon Sidr artisanal – Soin naturel pour les peaux sensibles',
+      handle: 'sidr-soap',
       createdAt: '2025-05-07T09:30:00-04:00',
       vendor: 'ChicElegance',
-      price: 120,
+      price: 80,
       featuredImage: {
-        src: productImage2.src,
-        width: productImage2.width,
-        height: productImage2.height,
-        alt: 'Silk Midi Dress',
+        src: sidrSoap1.src,
+        width: sidrSoap1.width,
+        height: sidrSoap1.height,
+        alt: 'Savon Sidr artisanal – Soin naturel pour les peaux sensibles',
       },
       images: [
         {
-          src: productImage2.src,
-          width: productImage2.width,
-          height: productImage2.height,
-          alt: 'Silk Midi Dress',
+          src: sidrSoap1.src,
+          width: sidrSoap1.width,
+          height: sidrSoap1.height,
+          alt: 'Savon Sidr artisanal – Soin naturel pour les peaux sensibles',
         },
         {
-          src: productImage2_1.src,
-          width: productImage2_1.width,
-          height: productImage2_1.height,
-          alt: 'Silk Midi Dress',
+          src: sidrSoap2.src,
+          width: sidrSoap2.width,
+          height: sidrSoap2.height,
+          alt: 'Savon Sidr artisanal – Soin naturel pour les peaux sensibles',
         },
         {
-          src: productImage2_2.src,
-          width: productImage2_2.width,
-          height: productImage2_2.height,
-          alt: 'Silk Midi Dress',
-        },
-        {
-          src: productImage2_3.src,
-          width: productImage2_3.width,
-          height: productImage2_3.height,
-          alt: 'Silk Midi Dress',
+          src: sidrSoap3.src,
+          width: sidrSoap3.width,
+          height: sidrSoap3.height,
+          alt: 'Savon Sidr artisanal – Soin naturel pour les peaux sensibles',
         },
       ],
       reviewNumber: 95,
@@ -1197,27 +1150,6 @@ export async function getProducts() {
                 image: null,
               },
             },
-            {
-              name: 'Ivory',
-              swatch: {
-                color: 'oklch(84.1% 0.238 128.85)',
-                image: null,
-              },
-            },
-            {
-              name: 'Navy Blue',
-              swatch: {
-                color: '#000080',
-                image: null,
-              },
-            },
-            {
-              name: 'Coral',
-              swatch: {
-                color: '#FF7F50',
-                image: null,
-              },
-            },
           ],
         },
         {
@@ -1225,19 +1157,7 @@ export async function getProducts() {
           optionValues: [
             {
               swatch: null,
-              name: 'XS',
-            },
-            {
-              swatch: null,
-              name: 'S',
-            },
-            {
-              swatch: null,
-              name: 'M',
-            },
-            {
-              swatch: null,
-              name: 'L',
+              name: '50 g',
             },
           ],
         },
@@ -1249,47 +1169,47 @@ export async function getProducts() {
         },
         {
           name: 'Size',
-          value: 'S',
+          value: '50 g',
         },
       ],
     },
     {
       id: 'gid://1003',
-      title: 'Denim Jacket',
-      handle: 'denim-jacket',
+      title: 'Savon artisanal à la rose pour hydrater',
+      handle: 'rose-soap',
       createdAt: '2025-05-08T11:15:00-04:00',
-      vendor: 'UrbanTrend',
+      vendor: 'Blissdor',
       price: 65,
       featuredImage: {
-        src: productImage3.src,
-        width: productImage3.width,
-        height: productImage3.height,
-        alt: 'Denim Jacket',
+        src: roseSoap1.src,
+        width: roseSoap1.width,
+        height: roseSoap1.height,
+        alt: 'Savon artisanal à la rose pour hydrater',
       },
       images: [
         {
-          src: productImage3.src,
-          width: productImage3.width,
-          height: productImage3.height,
-          alt: 'Denim Jacket',
+          src: roseSoap1.src,
+          width: roseSoap1.width,
+          height: roseSoap1.height,
+          alt: 'Savon artisanal à la rose pour hydrater',
         },
         {
-          src: productImage3_1.src,
-          width: productImage3_1.width,
-          height: productImage3_1.height,
-          alt: 'Denim Jacket',
+          src: roseSoap2.src,
+          width: roseSoap2.width,
+          height: roseSoap2.height,
+          alt: 'Savon artisanal à la rose pour hydrater',
         },
         {
-          src: productImage3_2.src,
-          width: productImage3_2.width,
-          height: productImage3_2.height,
-          alt: 'Denim Jacket',
+          src: roseSoap3.src,
+          width: roseSoap3.width,
+          height: roseSoap3.height,
+          alt: 'Savon artisanal à la rose pour hydrater',
         },
         {
-          src: productImage3_3.src,
-          width: productImage3_3.width,
-          height: productImage3_3.height,
-          alt: 'Denim Jacket',
+          src: roseSoap4.src,
+          width: roseSoap4.width,
+          height: roseSoap4.height,
+          alt: 'Savon artisanal à la rose pour hydrater',
         },
       ],
       reviewNumber: 120,
@@ -1300,23 +1220,9 @@ export async function getProducts() {
           name: 'Color',
           optionValues: [
             {
-              name: 'Light Blue',
+              name: 'Light Rose',
               swatch: {
-                color: '#ADD8E6',
-                image: null,
-              },
-            },
-            {
-              name: 'Dark Blue',
-              swatch: {
-                color: '#00008B',
-                image: null,
-              },
-            },
-            {
-              name: 'Black',
-              swatch: {
-                color: '#000000',
+                color: '#fac3d2',
                 image: null,
               },
             },
@@ -1327,19 +1233,7 @@ export async function getProducts() {
           optionValues: [
             {
               swatch: null,
-              name: 'S',
-            },
-            {
-              swatch: null,
-              name: 'M',
-            },
-            {
-              swatch: null,
-              name: 'L',
-            },
-            {
-              swatch: null,
-              name: 'XL',
+              name: '50 g',
             },
           ],
         },
@@ -1347,78 +1241,46 @@ export async function getProducts() {
       selectedOptions: [
         {
           name: 'Color',
-          value: 'Light Blue',
+          value: 'Light Rose',
         },
         {
           name: 'Size',
-          value: 'M',
+          value: '50 g',
         },
       ],
     },
     {
-      id: 'gid://1004',
-      title: 'Cashmere Sweater',
-      handle: 'cashmere-sweater',
-      createdAt: '2025-05-09T14:20:00-04:00',
-      vendor: 'SoftLux',
-      price: 150,
+      id: 'gid://1009',
+      title: 'Savon artisanal bio à la lavande',
+      handle: 'lavender-soap',
+      createdAt: '2025-05-08T11:15:00-04:00',
+      vendor: 'Blissdor',
+      price: 65,
       featuredImage: {
-        src: productImage4.src,
-        width: productImage4.width,
-        height: productImage4.height,
-        alt: 'Cashmere Sweater',
+        src: lavenderSoap1.src,
+        width: lavenderSoap1.width,
+        height: lavenderSoap1.height,
+        alt: 'Savon artisanal bio à la lavande',
       },
       images: [
         {
-          src: productImage4.src,
-          width: productImage4.width,
-          height: productImage4.height,
-          alt: 'Cashmere Sweater',
-        },
-        {
-          src: productImage4_1.src,
-          width: productImage4_1.width,
-          height: productImage4_1.height,
-          alt: 'Cashmere Sweater',
-        },
-        {
-          src: productImage4_2.src,
-          width: productImage4_2.width,
-          height: productImage4_2.height,
-          alt: 'Cashmere Sweater',
-        },
-        {
-          src: productImage4_3.src,
-          width: productImage4_3.width,
-          height: productImage4_3.height,
-          alt: 'Cashmere Sweater',
+          src: lavenderSoap2.src,
+          width: lavenderSoap2.width,
+          height: lavenderSoap2.height,
+          alt: 'Savon artisanal bio à la lavande',
         },
       ],
-      reviewNumber: 75,
-      rating: 4.8,
-      status: 'Limited Edition',
+      reviewNumber: 120,
+      rating: 4.3,
+      status: 'New in',
       options: [
         {
           name: 'Color',
           optionValues: [
             {
-              name: 'Charcoal',
+              name: 'Light Rose',
               swatch: {
-                color: '#36454F',
-                image: null,
-              },
-            },
-            {
-              name: 'Cream',
-              swatch: {
-                color: 'oklch(81% 0.117 11.638)',
-                image: null,
-              },
-            },
-            {
-              name: 'Burgundy',
-              swatch: {
-                color: '#800020',
+                color: '#fac3d2',
                 image: null,
               },
             },
@@ -1429,19 +1291,7 @@ export async function getProducts() {
           optionValues: [
             {
               swatch: null,
-              name: 'XS',
-            },
-            {
-              swatch: null,
-              name: 'S',
-            },
-            {
-              swatch: null,
-              name: 'M',
-            },
-            {
-              swatch: null,
-              name: 'L',
+              name: '50 g',
             },
           ],
         },
@@ -1449,51 +1299,45 @@ export async function getProducts() {
       selectedOptions: [
         {
           name: 'Color',
-          value: 'Cream',
+          value: 'Light Rose',
         },
         {
           name: 'Size',
-          value: 'M',
+          value: '50 g',
         },
       ],
     },
     {
       id: 'gid://1005',
-      title: 'Linen Blazer',
+      title: "Savon aux graines noires – Fait main et naturel à l'huile de nigelle",
       handle: 'linen-blazer',
       createdAt: '2025-05-10T08:45:00-04:00',
       vendor: 'TailoredFit',
       price: 95,
       featuredImage: {
-        src: productImage5.src,
-        width: productImage5.width,
-        height: productImage5.height,
-        alt: 'Linen Blazer',
+        src: nigellaSoap1.src,
+        width: nigellaSoap1.width,
+        height: nigellaSoap1.height,
+        alt: "Savon aux graines noires – Fait main et naturel à l'huile de nigelle",
       },
       images: [
         {
-          src: productImage5.src,
-          width: productImage5.width,
-          height: productImage5.height,
-          alt: 'Linen Blazer',
+          src: nigellaSoap2.src,
+          width: nigellaSoap2.width,
+          height: nigellaSoap2.height,
+          alt: "Savon aux graines noires – Fait main et naturel à l'huile de nigelle",
         },
         {
-          src: productImage5_1.src,
-          width: productImage5_1.width,
-          height: productImage5_1.height,
-          alt: 'Linen Blazer',
+          src: nigellaSoap3.src,
+          width: nigellaSoap3.width,
+          height: nigellaSoap3.height,
+          alt: "Savon aux graines noires – Fait main et naturel à l'huile de nigelle",
         },
         {
-          src: productImage5_2.src,
-          width: productImage5_2.width,
-          height: productImage5_2.height,
-          alt: 'Linen Blazer',
-        },
-        {
-          src: productImage5_3.src,
-          width: productImage5_3.width,
-          height: productImage5_3.height,
-          alt: 'Linen Blazer',
+          src: nigellaSoap4.src,
+          width: nigellaSoap4.width,
+          height: nigellaSoap4.height,
+          alt: "Savon aux graines noires – Fait main et naturel à l'huile de nigelle",
         },
       ],
       reviewNumber: 60,
@@ -1510,20 +1354,6 @@ export async function getProducts() {
                 image: null,
               },
             },
-            {
-              name: 'Navy',
-              swatch: {
-                color: '#000080',
-                image: null,
-              },
-            },
-            {
-              name: 'Olive',
-              swatch: {
-                color: '#808000',
-                image: null,
-              },
-            },
           ],
         },
         {
@@ -1531,15 +1361,7 @@ export async function getProducts() {
           optionValues: [
             {
               swatch: null,
-              name: 'M',
-            },
-            {
-              swatch: null,
-              name: 'L',
-            },
-            {
-              swatch: null,
-              name: 'XL',
+              name: '70 g',
             },
           ],
         },
@@ -1551,305 +1373,7 @@ export async function getProducts() {
         },
         {
           name: 'Size',
-          value: 'L',
-        },
-      ],
-    },
-    {
-      id: 'gid://1006',
-      title: 'Velvet Skirt',
-      handle: 'velvet-skirt',
-      createdAt: '2025-05-11T12:10:00-04:00',
-      vendor: 'GlamVibe',
-      price: 55,
-      featuredImage: {
-        src: productImage6.src,
-        width: productImage6.width,
-        height: productImage6.height,
-        alt: 'Velvet Skirt',
-      },
-      images: [
-        {
-          src: productImage6.src,
-          width: productImage6.width,
-          height: productImage6.height,
-          alt: 'Velvet Skirt',
-        },
-        {
-          src: productImage6_1.src,
-          width: productImage6_1.width,
-          height: productImage6_1.height,
-          alt: 'Velvet Skirt',
-        },
-        {
-          src: productImage6_2.src,
-          width: productImage6_2.width,
-          height: productImage6_2.height,
-          alt: 'Velvet Skirt',
-        },
-        {
-          src: productImage6_3.src,
-          width: productImage6_3.width,
-          height: productImage6_3.height,
-          alt: 'Velvet Skirt',
-        },
-      ],
-      reviewNumber: 45,
-      rating: 4.2,
-      status: 'Trending',
-      options: [
-        {
-          name: 'Color',
-          optionValues: [
-            {
-              name: 'Midnight Blue',
-              swatch: {
-                color: '#191970',
-                image: null,
-              },
-            },
-            {
-              name: 'Wine Red',
-              swatch: {
-                color: '#722F37',
-                image: null,
-              },
-            },
-            {
-              name: 'Emerald',
-              swatch: {
-                color: '#50C878',
-                image: null,
-              },
-            },
-          ],
-        },
-        {
-          name: 'Size',
-          optionValues: [
-            {
-              swatch: null,
-              name: 'XS',
-            },
-            {
-              swatch: null,
-              name: 'S',
-            },
-            {
-              swatch: null,
-              name: 'M',
-            },
-          ],
-        },
-      ],
-      selectedOptions: [
-        {
-          name: 'Color',
-          value: 'Wine Red',
-        },
-        {
-          name: 'Size',
-          value: 'S',
-        },
-      ],
-    },
-    {
-      id: 'gid://1007',
-      title: 'Wool Trench Coat',
-      handle: 'wool-trench-coat',
-      createdAt: '2025-05-12T10:25:00-04:00',
-      vendor: 'ClassicCharm',
-      price: 180,
-      featuredImage: {
-        src: productImage7.src,
-        width: productImage7.width,
-        height: productImage7.height,
-        alt: 'Wool Trench Coat',
-      },
-      images: [
-        {
-          src: productImage7.src,
-          width: productImage7.width,
-          height: productImage7.height,
-          alt: 'Wool Trench Coat',
-        },
-        {
-          src: productImage7_1.src,
-          width: productImage7_1.width,
-          height: productImage7_1.height,
-          alt: 'Wool Trench Coat',
-        },
-        {
-          src: productImage7_2.src,
-          width: productImage7_2.width,
-          height: productImage7_2.height,
-          alt: 'Wool Trench Coat',
-        },
-        {
-          src: productImage7_3.src,
-          width: productImage7_3.width,
-          height: productImage7_3.height,
-          alt: 'Wool Trench Coat',
-        },
-      ],
-      reviewNumber: 80,
-      rating: 4.6,
-      status: 'New in',
-      options: [
-        {
-          name: 'Color',
-          optionValues: [
-            {
-              name: 'Camel',
-              swatch: {
-                color: '#C19A6B',
-                image: null,
-              },
-            },
-            {
-              name: 'Black',
-              swatch: {
-                color: '#000000',
-                image: null,
-              },
-            },
-            {
-              name: 'Grey',
-              swatch: {
-                color: '#808080',
-                image: null,
-              },
-            },
-          ],
-        },
-        {
-          name: 'Size',
-          optionValues: [
-            {
-              swatch: null,
-              name: 'S',
-            },
-            {
-              swatch: null,
-              name: 'M',
-            },
-            {
-              swatch: null,
-              name: 'L',
-            },
-            {
-              swatch: null,
-              name: 'XL',
-            },
-          ],
-        },
-      ],
-      selectedOptions: [
-        {
-          name: 'Color',
-          value: 'Camel',
-        },
-        {
-          name: 'Size',
-          value: 'M',
-        },
-      ],
-    },
-    {
-      id: 'gid://1008',
-      title: 'Cotton Shirt',
-      handle: 'cotton-shirt',
-      createdAt: '2025-05-13T09:00:00-04:00',
-      vendor: 'CasualVibe',
-      price: 45,
-      featuredImage: {
-        src: productImage8.src,
-        width: productImage8.width,
-        height: productImage8.height,
-        alt: 'Cotton Shirt',
-      },
-      images: [
-        {
-          src: productImage8.src,
-          width: productImage8.width,
-          height: productImage8.height,
-          alt: 'Cotton Shirt',
-        },
-        {
-          src: productImage8_1.src,
-          width: productImage8_1.width,
-          height: productImage8_1.height,
-          alt: 'Cotton Shirt',
-        },
-        {
-          src: productImage8_2.src,
-          width: productImage8_2.width,
-          height: productImage8_2.height,
-          alt: 'Cotton Shirt',
-        },
-        {
-          src: productImage8_3.src,
-          width: productImage8_3.width,
-          height: productImage8_3.height,
-          alt: 'Cotton Shirt',
-        },
-      ],
-      reviewNumber: 110,
-      rating: 4.1,
-      status: 'Best Seller',
-      options: [
-        {
-          name: 'Color',
-          optionValues: [
-            {
-              name: 'White',
-              swatch: {
-                color: 'oklch(81% 0.117 11.638)',
-                image: null,
-              },
-            },
-            {
-              name: 'Light Blue',
-              swatch: {
-                color: '#ADD8E6',
-                image: null,
-              },
-            },
-            {
-              name: 'Pink',
-              swatch: {
-                color: '#FFC1CC',
-                image: null,
-              },
-            },
-          ],
-        },
-        {
-          name: 'Size',
-          optionValues: [
-            {
-              swatch: null,
-              name: 'S',
-            },
-            {
-              swatch: null,
-              name: 'M',
-            },
-            {
-              swatch: null,
-              name: 'L',
-            },
-          ],
-        },
-      ],
-      selectedOptions: [
-        {
-          name: 'Color',
-          value: 'White',
-        },
-        {
-          name: 'Size',
-          value: 'M',
+          value: '70 g',
         },
       ],
     },
