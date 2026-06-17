@@ -84,11 +84,11 @@ const demo_filters_options: FilterOption[] = [
     type: 'checkbox',
     hugeIcon: PackageDimensions01Icon,
     options: [
-      { name: 'XS', value: 'xs' },
-      { name: 'S', value: 's' },
-      { name: 'M', value: 'm' },
-      { name: 'L', value: 'l' },
-      { name: 'XL', value: 'xl' },
+      { name: '50G', value: '50' },
+      { name: '80G', value: '80' },
+      { name: '100G', value: '100' },
+      { name: '150G', value: '150' },
+      { name: '200G', value: '200' },
     ],
   },
   {
@@ -96,7 +96,7 @@ const demo_filters_options: FilterOption[] = [
     name: 'Price',
     type: 'price-range',
     min: 0,
-    max: 1000,
+    max: 500,
     hugeIcon: DollarCircleIcon,
   },
   {

@@ -1,8 +1,6 @@
 import { Divider } from '@/components/Divider'
 import { FilterSortByMenuListBox } from '@/components/FilterSortByMenu'
 import { FiltersMenuTabs } from '@/components/FiltersMenu'
-import ProductCard from '@/components/ProductCard'
-import { getProducts } from '@/data/data'
 import CollectionSlugView from '@/modules/collections/ui/views/collectionSlugView'
 import {
   Pagination,
@@ -11,14 +9,15 @@ import {
   PaginationPage,
   PaginationPrevious,
 } from '@/shared/Pagination/Pagination'
+import { getQueryClient, trpc } from '@/trpc/server'
 
 export default async function Page({ params }: { params: Promise<{ handle: string }> }) {
   const { handle } = await params
-  const products = await getProducts()
+  const queryClient = getQueryClient()
+  const data = await queryClient.fetchQuery(trpc.products.getMany.queryOptions({ collection: handle }))
 
   return (
     <main>
-      <CollectionSlugView slug={handle} />
       {/* TABS FILTER */}
       <div className="flex flex-wrap items-center gap-2.5">
         <FiltersMenuTabs />
@@ -28,11 +27,7 @@ export default async function Page({ params }: { params: Promise<{ handle: strin
       <Divider className="mt-8" />
 
       {/* LOOP ITEMS */}
-      <div className="mt-8 grid gap-x-8 gap-y-10 sm:grid-cols-2 lg:mt-10 lg:grid-cols-3 xl:grid-cols-4">
-        {products?.map((produc) => (
-          <ProductCard data={produc} key={produc.id} />
-        ))}
-      </div>
+      <CollectionSlugView data={data.items} />
 
       {/* PAGINATION */}
       <div className="mt-20 flex justify-center lg:mt-24">

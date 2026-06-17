@@ -1,17 +1,18 @@
-'use client'
-import { useTRPC } from '@/trpc/client'
-import { useQuery } from '@tanstack/react-query'
-import { useEffect } from 'react'
+import ProductCard from '@/components/ProductCard'
+import { ProductGetMany } from '@/modules/products/types'
 
-export const CollectionSlugView = ({ slug }: { slug: string }) => {
-  const trpc = useTRPC()
-  const { data } = useQuery(trpc.products.getMany.queryOptions({ collection: slug }))
+interface Props {
+  data: ProductGetMany
+}
 
-  useEffect(() => {
-    console.log('Products in collection:', data)
-  }, [data])
-
-  return <div></div>
+export const CollectionSlugView = ({ data }: Props) => {
+  return (
+    <div className="mt-8 grid gap-x-8 gap-y-10 sm:grid-cols-2 lg:mt-10 lg:grid-cols-3 xl:grid-cols-4">
+      {data?.map((product) => (
+        <ProductCard data={product} key={product.id} />
+      ))}
+    </div>
+  )
 }
 
 export default CollectionSlugView
