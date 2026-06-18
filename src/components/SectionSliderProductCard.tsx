@@ -23,7 +23,7 @@ const SectionSliderProductCard: FC<SectionSliderProductCardProps> = ({
   headingFontClassName,
   headingClassName,
   heading,
-  subHeading = 'REY backpacks & bags',
+  subHeading = 'Organic soaps',
   data,
   emblaOptions = {
     slidesToScroll: 'auto',
