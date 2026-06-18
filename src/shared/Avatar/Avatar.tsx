@@ -7,7 +7,7 @@ interface AvatarProps {
   containerClassName?: string
   sizeClass?: string
   radius?: string
-  imgUrl?: string | StaticImageData
+  imgUrl?: string | null | undefined | StaticImageData
   userName?: string
   hasChecked?: boolean
   hasCheckedClass?: string

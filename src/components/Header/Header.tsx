@@ -8,7 +8,6 @@ import CartBtn from './CartBtn'
 import CategoriesDropdown from './CategoriesDropdown'
 import CurrLangDropdown from './CurrLangDropdown'
 import HamburgerBtnMenu from './HamburgerBtnMenu'
-import MegaMenuPopover from './MegaMenuPopover'
 import SearchBtnPopover from './SearchBtnPopover'
 export interface HeaderProps {
   hasBorderBottom?: boolean
@@ -41,7 +40,7 @@ const Header: FC<HeaderProps> = async ({ hasBorderBottom = true }) => {
             <div className="block lg:hidden">
               <HamburgerBtnMenu />
             </div>
-            <MegaMenuPopover megamenu={megamenu} featuredCollection={featuredCollections[0]} />
+            {/* <MegaMenuPopover megamenu={megamenu} featuredCollection={featuredCollections[0]} /> */}
             <CurrLangDropdown currencies={currencies} languages={languages} className="hidden md:block" />
             <SearchBtnPopover />
             <AvatarDropdown />
