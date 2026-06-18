@@ -1,9 +1,8 @@
 'use client'
 
 import backgroundLineSvg from '@/images/Moon.svg'
-import heroImage1 from '@/images/hero-right-1.png'
-import heroImage2 from '@/images/hero-right-2.png'
-import heroImage3 from '@/images/hero-right-3.png'
+import heroImage1 from '@/images/h1-slide-01.png'
+import heroImage2 from '@/images/h1-slide-02.png'
 import ButtonPrimary from '@/shared/Button/ButtonPrimary'
 import { Search01Icon } from '@hugeicons/core-free-icons'
 import { HugeiconsIcon } from '@hugeicons/react'
@@ -18,24 +17,16 @@ const data = [
   {
     id: 1,
     imageUrl: heroImage1.src,
-    heading: 'Exclusive collection <br /> for everyone',
-    subHeading: 'In this season, find the best 🔥',
+    heading: 'Organic handmade <br /> soap for everyone',
+    subHeading: 'In this season, find the best',
     btnText: 'Explore shop now',
     btnHref: '/collections/all',
   },
   {
     id: 2,
     imageUrl: heroImage2.src,
-    heading: 'Exclusive collection <br /> for everyone',
-    subHeading: 'In this season, find the best 🔥',
-    btnText: 'Explore shop now',
-    btnHref: '/collections/all',
-  },
-  {
-    id: 3,
-    imageUrl: heroImage3.src,
-    heading: 'Exclusive collection <br /> for everyone',
-    subHeading: 'In this season, find the best 🔥',
+    heading: 'Organic handmade <br /> soap for everyone',
+    subHeading: 'In this season, find the best',
     btnText: 'Explore shop now',
     btnHref: '/collections/all',
   },
@@ -74,7 +65,7 @@ const SectionHero2: FC<Props> = ({ className = '' }) => {
     () => {
       handleAutoNext()
     },
-    isRunning ? 5000 : 999999
+    isRunning ? 10000 : 999999
   )
 
   const handleAutoNext = () => {

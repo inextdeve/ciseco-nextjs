@@ -3,13 +3,12 @@
 import Heading from '@/components/Heading/Heading'
 import { useCarouselArrowButtons } from '@/hooks/use-carousel-arrow-buttons'
 import { useCarouselDotButton } from '@/hooks/use-carousel-dot-buttons'
-import userImage1 from '@/images/users/1.png'
-import userImage2 from '@/images/users/2.png'
-import userImage3 from '@/images/users/3.png'
-import userImage4 from '@/images/users/4.png'
-import userImage5 from '@/images/users/5.png'
-import userImage6 from '@/images/users/6.png'
-import userImage7 from '@/images/users/7.png'
+import charcoalSoap from '@/images/products/charcoal_soap_1.webp'
+import lavenderSoap from '@/images/products/lavender-soap.png'
+import nilaSoapFlower from '@/images/products/nila_soap_flower.jpg'
+import roseSoap from '@/images/products/rose_soap.png'
+import sidrSoap from '@/images/products/sidr_soap_1.webp'
+
 import qlImage from '@/images/users/ql.png'
 import qrImage from '@/images/users/qr.png'
 import { StarIcon } from '@heroicons/react/24/solid'
@@ -23,18 +22,18 @@ import { FC } from 'react'
 export const DEMO_DATA = [
   {
     id: 1,
-    clientName: 'Tiana Abie',
-    content: 'Great quality products, affordable prices, fast and friendly delivery. I very recommend.',
+    clientName: 'Wijdan',
+    content: "C'est le meilleure savon que j'ai utilise avec son effet hydraton et sa saveur naturel magnifique ",
   },
   {
     id: 2,
-    clientName: 'Lennie Swiffan',
-    content: 'Great quality products, affordable prices, fast and friendly delivery. I very recommend.',
+    clientName: 'Hasnae',
+    content: 'صابونة ولات عندي ادمان الا مشميتش ريحتها منعسش',
   },
   {
     id: 3,
-    clientName: 'Berta Emili',
-    content: 'Great quality products, affordable prices, fast and friendly delivery. I very recommend.',
+    clientName: 'Touriya',
+    content: 'wslatni commande dakxi zwin bzaf kif kont mtwa93a riha zwina bzaf.',
   },
 ]
 
@@ -51,10 +50,10 @@ const SectionClientSay: FC<SectionClientSayProps> = ({
     slidesToScroll: 1,
     loop: true,
   },
-  heading = 'Good news from far away 🥇',
-  subHeading = "Let's see what people think of Ciseco",
+  heading = 'What Our Customers Are Saying',
+  subHeading = "Let's see what people think of Blissdor",
 }) => {
-  const [emblaRef, emblaApi] = useEmblaCarousel(emblaOptions, [Autoplay({ playOnInit: true, delay: 2000 })])
+  const [emblaRef, emblaApi] = useEmblaCarousel(emblaOptions, [Autoplay({ playOnInit: true, delay: 4000 })])
   const { prevBtnDisabled, nextBtnDisabled, onPrevButtonClick, onNextButtonClick } = useCarouselArrowButtons(emblaApi)
   const { selectedIndex, scrollSnaps, onDotButtonClick } = useCarouselDotButton(emblaApi)
 
@@ -73,44 +72,64 @@ const SectionClientSay: FC<SectionClientSayProps> = ({
       <div className="relative mx-auto max-w-2xl md:mb-16">
         {/* BACKGROUND USER IMAGES */}
         <div className="hidden md:block">
-          <Image sizes="100px" width={60} height={60} className="absolute top-9 -left-20" src={userImage2} alt="" />
           <Image
             sizes="100px"
             width={60}
             height={60}
-            className="absolute right-full bottom-[100px] mr-40"
-            src={userImage3}
+            className="absolute top-9 -left-20 aspect-square rounded-full object-cover"
+            src={lavenderSoap}
             alt=""
           />
           <Image
             sizes="100px"
             width={60}
             height={60}
-            className="absolute top-full left-[140px]"
-            src={userImage4}
+            className="absolute right-full bottom-[100px] mr-40 aspect-square rounded-full object-cover"
+            src={charcoalSoap}
             alt=""
           />
           <Image
             sizes="100px"
             width={60}
             height={60}
-            className="absolute right-[140px] -bottom-10"
-            src={userImage5}
+            className="absolute top-full left-[140px] aspect-square rounded-full object-cover"
+            src={sidrSoap}
             alt=""
           />
           <Image
             sizes="100px"
             width={60}
             height={60}
-            className="absolute bottom-[80px] left-full ml-32"
-            src={userImage6}
+            className="absolute right-[140px] -bottom-10 aspect-square rounded-full object-cover"
+            src={roseSoap}
             alt=""
           />
-          <Image sizes="100px" width={60} height={60} className="absolute top-10 -right-10" src={userImage7} alt="" />
+          <Image
+            sizes="100px"
+            width={60}
+            height={60}
+            className="absolute bottom-[80px] left-full ml-32 aspect-square rounded-full object-cover"
+            src={nilaSoapFlower}
+            alt=""
+          />
+          <Image
+            sizes="100px"
+            width={60}
+            height={60}
+            className="absolute top-10 -right-10 aspect-square rounded-full object-cover"
+            src={sidrSoap}
+            alt=""
+          />
         </div>
 
         {/* MAIN USER IMAGE */}
-        <Image className="mx-auto" src={userImage1} width={125} height={120} alt="" />
+        <Image
+          className="mx-auto aspect-square rounded-full object-cover"
+          src={roseSoap}
+          width={125}
+          height={120}
+          alt=""
+        />
 
         {/* SLIDER */}
         <div className="relative mt-12 lg:mt-16">

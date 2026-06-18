@@ -14,6 +14,10 @@ import productImage1 from '@/images/products/p1.jpg'
 import charcoalSoap1 from '@/images/products/charcoal_soap_1.webp'
 import charcoalSoap2 from '@/images/products/charcoal_soap_2.webp'
 import charcoalSoap3 from '@/images/products/charcoal_soap_3.webp'
+import charcoalSoap_nobg from '@/images/products/charcoal_soap_nobg.png'
+
+import nilaSoap from '@/images/products/nila_soap.png'
+import roseSoap from '@/images/products/rose_soap.png'
 
 import sidrSoap1 from '@/images/products/sidr_soap_1.webp'
 import sidrSoap2 from '@/images/products/sidr_soap_2.webp'
@@ -24,6 +28,7 @@ import roseSoap2 from '@/images/products/rose_soap_2.webp'
 import roseSoap3 from '@/images/products/rose_soap_3.webp'
 import roseSoap4 from '@/images/products/rose_soap_4.webp'
 
+import lavenderSoap from '@/images/products/lavender-soap.png'
 import lavenderSoap1 from '@/images/products/lavender_soap_1.jpg'
 import lavenderSoap2 from '@/images/products/lavender_soap_2.jpg'
 
@@ -674,12 +679,12 @@ export async function getCollections() {
       description:
         'Discover our handcrafted soaps, made by hand with high-quality natural ingredients. Gentle, moisturizing, and delicately scented, they provide care suitable for all skin types.',
       sortDescription: 'Newest arrivals',
-      color: 'bg-indigo-50',
+      color: 'bg-[#5d886c]',
       count: 77,
       image: {
-        src: charcoalSoap1.src,
-        width: charcoalSoap1.width,
-        height: charcoalSoap1.height,
+        src: charcoalSoap_nobg.src,
+        width: charcoalSoap_nobg.width,
+        height: charcoalSoap_nobg.height,
         alt: 'handmade soap',
       },
     },
@@ -777,65 +782,65 @@ export async function getCollections() {
     //  Featured collections 8 - 11
     {
       id: 'gid://8',
-      title: 'Explore new arrivals',
-      handle: 'explore-new-arrivals',
-      sortDescription: 'Shop the latest <br /> from top brands',
+      title: 'Charcoal Soap',
+      handle: 'charcoal-soap',
+      sortDescription: 'Activated Charcoal Handmade Soap',
       description:
         'Excoolent new arrivals for every occasion, from casual to formal. Explore our collection of trendy jackets that elevate your outfit.',
       color: 'bg-orange-50',
       count: 77,
       image: {
-        src: collectionImage5.src,
-        width: collectionImage5.width,
-        height: collectionImage5.height,
-        alt: 'Explore new arrivals',
+        src: charcoalSoap_nobg.src,
+        width: charcoalSoap_nobg.width,
+        height: charcoalSoap_nobg.height,
+        alt: 'handmade soap',
       },
     },
     {
       id: 'gid://9',
-      title: 'Sale collection',
-      handle: 'sale-collection',
-      sortDescription: 'Up to <br /> 80% off retail',
+      title: 'Lavender soap',
+      handle: 'lavender-soap',
+      sortDescription: 'Lavender Patchouli Handmade Soap',
       description:
         'Excoolent new arrivals for every occasion, from casual to formal. Explore our collection of trendy jackets that elevate your outfit.',
       color: 'bg-green-50',
       count: 85,
       image: {
-        src: collectionImage4.src,
-        width: collectionImage4.width,
-        height: collectionImage4.height,
+        src: lavenderSoap.src,
+        width: lavenderSoap.width,
+        height: lavenderSoap.height,
         alt: 'Explore new arrivals',
       },
     },
     {
       id: 'gid://10',
-      title: 'Sale collection',
-      handle: 'sale-collection-2',
-      sortDescription: 'Up to <br /> 90% off retail',
+      title: 'Nila soap',
+      handle: 'nila-soap',
+      sortDescription: 'Daily Brightening </br> Soap',
       description:
         'Excoolent new arrivals for every occasion, from casual to formal. Explore our collection of trendy jackets that elevate your outfit.',
       color: 'bg-blue-50',
       count: 77,
       image: {
-        src: collectionImage3.src,
-        width: collectionImage3.width,
-        height: collectionImage3.height,
+        src: nilaSoap.src,
+        width: nilaSoap.width,
+        height: nilaSoap.height,
         alt: 'Explore new arrivals',
       },
     },
     {
       id: 'gid://11',
-      title: 'Digital gift cards',
-      handle: 'digital-gift-cards',
-      sortDescription: 'Give the gift <br /> of choice',
+      title: 'Rose soap',
+      handle: 'rose-soap',
+      sortDescription: 'Touch of Floral </br> Elegance',
       description:
         'Excoolent new arrivals for every occasion, from casual to formal. Explore our collection of trendy jackets that elevate your outfit.',
       color: 'bg-red-50',
       count: 112,
       image: {
-        src: collectionImage2.src,
-        width: collectionImage2.width,
-        height: collectionImage2.height,
+        src: roseSoap.src,
+        width: roseSoap.width,
+        height: roseSoap.height,
         alt: 'Explore new arrivals',
       },
     },
@@ -1422,11 +1427,11 @@ export async function getProductDetailByHandle(handle: string) {
     selectedOptions: [
       {
         name: 'Color',
-        value: product?.options.find((option) => option.name === 'Color')?.optionValues[1].name,
+        value: product?.selectedOptions.find((option) => option.name === 'Color')?.value,
       },
       {
         name: 'Size',
-        value: product?.options.find((option) => option.name === 'Size')?.optionValues[0].name,
+        value: product?.selectedOptions.find((option) => option.name === 'Size')?.value,
       },
     ],
     features: [
