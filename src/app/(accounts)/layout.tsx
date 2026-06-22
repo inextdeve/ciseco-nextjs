@@ -1,9 +1,9 @@
 import { Divider } from '@/components/Divider'
 import Footer from '@/components/Footer'
-import Header2 from '@/components/Header/Header2'
-import AsideProductQuickView from '@/components/aside-product-quickview'
-import AsideSidebarCart from '@/components/aside-sidebar-cart'
+import Header from '@/components/Header/Header'
 import AsideSidebarNavigation from '@/components/aside-sidebar-navigation'
+import AsideSidebarCart from '@/modules/cart/ui/components/aside-sidebar-cart'
+import AsideProductQuickView from '@/modules/products/ui/components/aside-product-quickview'
 import React, { FC } from 'react'
 import PageTab from './PageTab'
 
@@ -14,7 +14,7 @@ interface Props {
 const Layout: FC<Props> = ({ children }) => {
   return (
     <>
-      <Header2 />
+      <Header />
       <div className="container">
         <div className="mt-14 sm:mt-20">
           <div className="mx-auto max-w-4xl">
