@@ -1,10 +1,16 @@
 'use client'
 
 import AccordionInfo from '@/components/AccordionInfo'
+import AddToCardButton from '@/components/AddToCardButton'
+import { Divider } from '@/components/Divider'
 import IconDiscount from '@/components/IconDiscount'
 import LikeButton from '@/components/LikeButton'
 import NcInputNumber from '@/components/NcInputNumber'
 import Prices from '@/components/Prices'
+import ProductColorOptions from '@/components/ProductForm/ProductColorOptions'
+import ProductForm from '@/components/ProductForm/ProductForm'
+import ProductSizeOptions from '@/components/ProductForm/ProductSizeOptions'
+import { useAside } from '@/components/aside'
 import { TProductDetail, getProductDetailByHandle } from '@/data/data'
 import ButtonPrimary from '@/shared/Button/ButtonPrimary'
 import { Link } from '@/shared/link'
@@ -14,11 +20,6 @@ import { ShoppingBag03Icon } from '@hugeicons/core-free-icons'
 import { HugeiconsIcon } from '@hugeicons/react'
 import Image from 'next/image'
 import { FC, useEffect, useState } from 'react'
-import { Divider } from './Divider'
-import ProductColorOptions from './ProductForm/ProductColorOptions'
-import ProductForm from './ProductForm/ProductForm'
-import ProductSizeOptions from './ProductForm/ProductSizeOptions'
-import { useAside } from './aside'
 
 interface ProductQuickViewProps {
   className?: string
@@ -139,7 +140,17 @@ const ProductQuickView: FC<ProductQuickViewProps> = ({ className }) => {
                 <NcInputNumber name="quantity" defaultValue={1} />
               </div>
 
-              <ButtonPrimary className="flex-1" type="submit">
+              <AddToCardButton
+                as={ButtonPrimary}
+                className="flex-1 cursor-pointer"
+                productId={product.id!}
+                title={title || ''}
+                imageUrl={featuredImage?.src || ''}
+                price={price || 0}
+                quantity={1}
+                size={selectedOptions?.find((option) => option.name === 'Size')?.value}
+                color={selectedOptions?.find((option) => option.name === 'Color')?.value}
+              >
                 <HugeiconsIcon
                   icon={ShoppingBag03Icon}
                   size={20}
@@ -148,7 +159,7 @@ const ProductQuickView: FC<ProductQuickViewProps> = ({ className }) => {
                   strokeWidth={1.5}
                 />
                 <span className="text-base/6 font-normal sm:ml-2.5">Add to cart</span>
-              </ButtonPrimary>
+              </AddToCardButton>
             </div>
           </fieldset>
         </ProductForm>

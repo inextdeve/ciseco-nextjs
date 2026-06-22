@@ -1,0 +1,65 @@
+import Prices from '@/components/Prices'
+import { ChevronDownIcon } from 'lucide-react'
+import Image from 'next/image'
+import Link from 'next/link'
+import { CartProductLine } from '../../types'
+
+export const CartProduct = ({ product, onRemove }: { product: CartProductLine; onRemove: () => void }) => {
+  const { name, price, image, size, color, quantity, productId } = product
+
+  return (
+    <div className="flex py-5 last:pb-0">
+      <div className="relative h-24 w-20 shrink-0 overflow-hidden rounded-xl bg-neutral-100">
+        {image?.src && <Image fill src={image.src} alt={image.alt ?? ''} className="object-contain" sizes="200px" />}
+        <Link className="absolute inset-0" href={'/products/' + productId} />
+      </div>
+
+      <div className="ml-4 flex flex-1 flex-col">
+        <div>
+          <div className="flex justify-between">
+            <div>
+              <h3 className="text-base font-medium">
+                <Link href={'/products/' + productId}>{name}</Link>
+              </h3>
+              <p className="mt-1 text-sm text-neutral-500 dark:text-neutral-400">
+                <span>{color}</span>
+                <span className="mx-2 h-4 border-l border-neutral-200 dark:border-neutral-700"></span>
+                <span>{size}</span>
+              </p>
+            </div>
+            <Prices price={price || 0} className="mt-0.5" />
+          </div>
+        </div>
+        <div className="flex flex-1 items-end justify-between text-sm">
+          <div className="inline-grid w-full max-w-16 grid-cols-1">
+            <select
+              name={`quantity-${product.id}`}
+              aria-label={`Quantity, ${product.name}`}
+              className="col-start-1 row-start-1 appearance-none rounded-md py-0.5 ps-3 pe-8 text-xs/6 outline-1 -outline-offset-1 outline-neutral-900/10 focus:outline-1 dark:outline-white/15"
+              defaultValue={quantity}
+            >
+              <option value={1}>1</option>
+              <option value={2}>2</option>
+              <option value={3}>3</option>
+              <option value={4}>4</option>
+              <option value={5}>5</option>
+              <option value={6}>6</option>
+              <option value={7}>7</option>
+              <option value={8}>8</option>
+            </select>
+            <ChevronDownIcon
+              aria-hidden="true"
+              className="pointer-events-none col-start-1 row-start-1 me-2 size-4 self-center justify-self-end text-neutral-500 dark:text-neutral-400"
+            />
+          </div>
+
+          <div className="flex">
+            <button onClick={onRemove} type="button" className="font-medium text-primary-600 dark:text-primary-500">
+              Remove
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  )
+}

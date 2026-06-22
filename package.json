@@ -32,6 +32,7 @@
     "embla-carousel-react": "^8.6.0",
     "framer-motion": "^12.40.0",
     "lucide-react": "^1.20.0",
+    "nanoid": "^5.1.14",
     "next": "^16.1.1",
     "pg": "^8.21.0",
     "rc-slider": "^11.1.9",
@@ -42,7 +43,8 @@
     "react-swipeable": "^7.0.2",
     "react-use": "^17.6.0",
     "sass": "^1.87.0",
-    "tailwind-merge": "^3.6.0"
+    "tailwind-merge": "^3.6.0",
+    "zod": "^4.4.3"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4.1.6",

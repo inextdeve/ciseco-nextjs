@@ -1,5 +1,6 @@
 import { relations } from 'drizzle-orm'
-import { boolean, index, pgTable, text, timestamp } from 'drizzle-orm/pg-core'
+import { boolean, index, integer, jsonb, pgTable, text, timestamp, varchar } from 'drizzle-orm/pg-core'
+import { nanoid } from 'nanoid'
 
 export const user = pgTable('user', {
   id: text('id').primaryKey(),
@@ -89,5 +90,59 @@ export const accountRelations = relations(account, ({ one }) => ({
   user: one(user, {
     fields: [account.userId],
     references: [user.id],
+  }),
+}))
+
+// Cart Schema
+
+export const carts = pgTable('carts', {
+  id: text('id')
+    .primaryKey()
+    .$defaultFn(() => nanoid()),
+
+  userId: text('user_id')
+    .notNull()
+    .references(() => user.id, { onDelete: 'cascade' }),
+
+  createdAt: timestamp('created_at', { withTimezone: true }).notNull().defaultNow(),
+})
+
+export const cartItems = pgTable('cart_items', {
+  id: text('id')
+    .primaryKey()
+    .$defaultFn(() => nanoid()),
+
+  cartId: text('cart_id')
+    .notNull()
+    .references(() => carts.id, {
+      onDelete: 'cascade',
+    }),
+
+  productId: varchar('productId', { length: 255 }).notNull(),
+
+  name: varchar('name', { length: 255 }).notNull(),
+
+  price: integer('price').notNull(),
+
+  color: varchar('color', { length: 100 }),
+
+  size: varchar('size', { length: 20 }),
+
+  quantity: integer('quantity').notNull(),
+
+  image: jsonb('image').$type<{
+    src: string
+    alt?: string
+  }>(),
+})
+
+export const cartsRelations = relations(carts, ({ many }) => ({
+  lines: many(cartItems),
+}))
+
+export const cartItemsRelations = relations(cartItems, ({ one }) => ({
+  cart: one(carts, {
+    fields: [cartItems.cartId],
+    references: [carts.id],
   }),
 }))

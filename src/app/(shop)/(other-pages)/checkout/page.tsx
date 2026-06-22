@@ -1,11 +1,12 @@
 import NcInputNumber from '@/components/NcInputNumber'
 import Prices from '@/components/Prices'
-import { TCardProduct, getCart } from '@/data/data'
+import { CartProductLine } from '@/modules/cart/types'
 import Breadcrumb from '@/shared/Breadcrumb'
 import ButtonPrimary from '@/shared/Button/ButtonPrimary'
 import { Field, Label } from '@/shared/fieldset'
 import { Input } from '@/shared/input'
 import { Link } from '@/shared/link'
+import { getQueryClient, trpc } from '@/trpc/server'
 import { Coordinate01Icon, InformationCircleIcon, PaintBucketIcon } from '@hugeicons/core-free-icons'
 import { HugeiconsIcon } from '@hugeicons/react'
 import { Metadata } from 'next'
@@ -19,7 +20,9 @@ export const metadata: Metadata = {
 }
 
 const CheckoutPage = async () => {
-  const cart = await getCart('id://cart')
+  const queryClient = getQueryClient()
+
+  const cart = await queryClient.fetchQuery(trpc.cart.get.queryOptions())
 
   const onSubmitFormDiscountCode = async (formData: FormData) => {
     'use server'
@@ -28,8 +31,8 @@ const CheckoutPage = async () => {
     // Here you can implement the logic to apply the discount code
   }
 
-  const renderProduct = (product: TCardProduct) => {
-    const { image, price, name, handle, id, size, color, quantity } = product
+  const renderProduct = (product: CartProductLine) => {
+    const { image, price, name, productId, id, size, color, quantity } = product
 
     return (
       <div key={id} className="relative flex py-8 first:pt-0 last:pb-0 sm:py-10 xl:py-12">
@@ -37,14 +40,14 @@ const CheckoutPage = async () => {
           {image?.src && (
             <Image
               fill
-              src={image}
+              src={image.src}
               alt={image.alt || ''}
               sizes="300px"
               className="object-contain object-center"
               priority
             />
           )}
-          <Link href={'/products/' + handle} className="absolute inset-0"></Link>
+          <Link href={'/products/' + productId} className="absolute inset-0"></Link>
         </div>
 
         <div className="ml-3 flex flex-1 flex-col sm:ml-6">
@@ -52,7 +55,7 @@ const CheckoutPage = async () => {
             <div className="flex justify-between">
               <div className="flex-[1.5]">
                 <h3 className="text-base font-semibold">
-                  <Link href={'/products/' + handle}>{name}</Link>
+                  <Link href={'/products/' + productId}>{name}</Link>
                 </h3>
                 <div className="mt-1.5 flex text-sm text-neutral-600 sm:mt-2.5 dark:text-neutral-300">
                   <div className="flex items-center gap-x-2">
@@ -149,23 +152,21 @@ const CheckoutPage = async () => {
 
             <div className="mt-4 flex justify-between py-2.5">
               <span>Subtotal</span>
-              <span className="font-semibold text-neutral-900 dark:text-neutral-200">
-                ${cart.cost.subtotal.toFixed(2)}
-              </span>
+              <span className="font-semibold text-neutral-900 dark:text-neutral-200">${cart.subtotal.toFixed(2)}</span>
             </div>
             <div className="flex justify-between py-2.5">
               <span>Shipping estimate</span>
               <span className="font-semibold text-neutral-900 dark:text-neutral-200">
-                ${cart.cost.shipping.toFixed(2)}
+                {/* ${cart.cost.shipping.toFixed(2)} */}35 MAD
               </span>
             </div>
             <div className="flex justify-between py-2.5">
               <span>Tax estimate</span>
-              <span className="font-semibold text-neutral-900 dark:text-neutral-200">${cart.cost.tax.toFixed(2)}</span>
+              <span className="font-semibold text-neutral-900 dark:text-neutral-200">0%</span>
             </div>
             <div className="flex justify-between pt-4 text-base font-semibold text-neutral-900 dark:text-neutral-200">
               <span>Order total</span>
-              <span>${cart.cost.total.toFixed(2)}</span>
+              <span>MAD {(Number(cart.subtotal) + 35).toFixed(2)}</span>
             </div>
           </div>
           <ButtonPrimary className="mt-8 w-full" href="/order-successful">

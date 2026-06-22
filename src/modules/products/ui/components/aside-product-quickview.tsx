@@ -1,5 +1,5 @@
+import { Aside } from '@/components/aside/aside'
 import ProductQuickView from './ProductQuickView'
-import { Aside } from './aside/aside'
 
 interface Props {
   className?: string

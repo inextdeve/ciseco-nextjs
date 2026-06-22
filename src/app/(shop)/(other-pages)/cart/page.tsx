@@ -1,8 +1,9 @@
 import NcInputNumber from '@/components/NcInputNumber'
 import Prices from '@/components/Prices'
-import { TCardProduct, getCart } from '@/data/data'
+import { CartProductLine } from '@/modules/cart/types'
 import Breadcrumb from '@/shared/Breadcrumb'
 import ButtonPrimary from '@/shared/Button/ButtonPrimary'
+import { getQueryClient, trpc } from '@/trpc/server'
 import { CheckIcon } from '@heroicons/react/24/outline'
 import { Coordinate01Icon, InformationCircleIcon, PaintBucketIcon } from '@hugeicons/core-free-icons'
 import { HugeiconsIcon } from '@hugeicons/react'
@@ -16,7 +17,9 @@ export const metadata: Metadata = {
 }
 
 const CartPage = async () => {
-  const cart = await getCart('id://cart')
+  const queryClient = getQueryClient()
+
+  const cart = await queryClient.fetchQuery(trpc.cart.get.queryOptions())
 
   const renderStatusInstock = () => {
     return (
@@ -27,23 +30,23 @@ const CartPage = async () => {
     )
   }
 
-  const renderProduct = (product: TCardProduct) => {
-    const { image, price, name, handle, id, size, color, quantity } = product
+  const renderProduct = (product: CartProductLine) => {
+    const { image, price, name, productId, size, color, quantity } = product
 
     return (
-      <div key={id} className="relative flex py-8 first:pt-0 last:pb-0 sm:py-10 xl:py-12">
+      <div key={productId} className="relative flex py-8 first:pt-0 last:pb-0 sm:py-10 xl:py-12">
         <div className="relative h-36 w-24 shrink-0 overflow-hidden rounded-xl bg-neutral-100 sm:w-32">
           {image?.src && (
             <Image
               fill
-              src={image}
+              src={image.src}
               alt={image.alt || ''}
               sizes="300px"
               className="rounded-xl object-contain object-center"
               priority
             />
           )}
-          <Link href={'/products/' + handle} className="absolute inset-0"></Link>
+          <Link href={'/products/' + productId} className="absolute inset-0"></Link>
         </div>
 
         <div className="ml-3 flex flex-1 flex-col sm:ml-6">
@@ -51,7 +54,7 @@ const CartPage = async () => {
             <div className="flex justify-between">
               <div className="flex-[1.5]">
                 <h3 className="text-base font-semibold">
-                  <Link href={'/products/' + handle}>{name}</Link>
+                  <Link href={'/products/' + productId}>{name}</Link>
                 </h3>
                 <div className="mt-1.5 flex text-sm text-neutral-600 sm:mt-2.5 dark:text-neutral-300">
                   <div className="flex items-center gap-x-2">
@@ -128,24 +131,27 @@ const CartPage = async () => {
                 <div className="flex justify-between pb-4">
                   <span>Subtotal</span>
                   <span className="font-semibold text-neutral-900 dark:text-neutral-200">
-                    ${cart.cost.subtotal.toFixed(2)}
+                    MAD {cart.subtotal.toFixed(2)}
                   </span>
                 </div>
                 <div className="flex justify-between py-4">
                   <span>Shipping estimate</span>
                   <span className="font-semibold text-neutral-900 dark:text-neutral-200">
-                    ${cart.cost.shipping.toFixed(2)}
+                    {/* ${cart.cost.shipping.toFixed(2)} */}
+                    35 MAD
                   </span>
                 </div>
                 <div className="flex justify-between py-4">
                   <span>Tax estimate</span>
                   <span className="font-semibold text-neutral-900 dark:text-neutral-200">
-                    ${cart.cost.tax.toFixed(2)}
+                    {/* ${cart.cost.tax.toFixed(2)}
+                     */}
+                    0%
                   </span>
                 </div>
                 <div className="flex justify-between pt-4 text-base font-semibold text-neutral-900 dark:text-neutral-200">
                   <span>Order total</span>
-                  <span>${cart.cost.total.toFixed(2)}</span>
+                  <span>MAD {(Number(cart.subtotal) + 35).toFixed(2)}</span>
                 </div>
               </div>
               <ButtonPrimary href="/checkout" className="mt-8 w-full">

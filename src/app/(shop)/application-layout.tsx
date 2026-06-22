@@ -1,8 +1,8 @@
 import Footer from '@/components/Footer'
 import Header from '@/components/Header/Header'
-import AsideProductQuickView from '@/components/aside-product-quickview'
-import AsideSidebarCart from '@/components/aside-sidebar-cart'
 import AsideSidebarNavigation from '@/components/aside-sidebar-navigation'
+import AsideSidebarCart from '@/modules/cart/ui/components/aside-sidebar-cart'
+import AsideProductQuickView from '@/modules/products/ui/components/aside-product-quickview'
 import 'rc-slider/assets/index.css'
 import React, { ReactNode } from 'react'
 

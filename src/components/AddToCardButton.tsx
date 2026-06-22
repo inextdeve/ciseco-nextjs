@@ -2,12 +2,14 @@
 
 import Prices from '@/components/Prices'
 import { Link } from '@/shared/link'
+import { useTRPC } from '@/trpc/client'
 import { Transition } from '@headlessui/react'
+import { useMutation, useQueryClient } from '@tanstack/react-query'
 import Image from 'next/image'
 import React, { ComponentType, ElementType, FC } from 'react'
 import toast from 'react-hot-toast'
 
-interface NotifyAddToCartProps extends AddToCardButtonProps {
+interface NotifyAddToCartProps extends Omit<AddToCardButtonProps, 'productId'> {
   show: boolean
 }
 
@@ -70,6 +72,7 @@ interface AddToCardButtonProps {
   size?: string
   color?: string
   price: number
+  productId: string
   as?: ElementType | ComponentType<any>
   [key: string]: any // Cho phép bất kỳ props tùy chỉnh nào
 }
@@ -84,8 +87,12 @@ const AddToCardButton = ({
   size,
   title,
   as,
+  productId,
   ...props
 }: AddToCardButtonProps) => {
+  const trpc = useTRPC()
+  const queryClient = useQueryClient()
+
   const notifyAddTocart = () => {
     toast.custom(
       (t) => (
@@ -103,10 +110,26 @@ const AddToCardButton = ({
     )
   }
 
+  const addToCart = useMutation(
+    trpc.cart.addItem.mutationOptions({
+      onSuccess: async (data) => {
+        await queryClient.invalidateQueries(trpc.cart.get.queryOptions())
+        notifyAddTocart()
+      },
+      onError: (error) => {
+        toast.error(error.message)
+      },
+    })
+  )
+
   const Component = as || 'button'
 
+  const onAddToCart = () => {
+    addToCart.mutate({ name: title, productId, quantity, size, color, price, image: { src: imageUrl, alt: title } })
+  }
+
   return (
-    <Component className={className} onClick={notifyAddTocart} {...props}>
+    <Component className={className} onClick={onAddToCart} {...props}>
       {children}
     </Component>
   )

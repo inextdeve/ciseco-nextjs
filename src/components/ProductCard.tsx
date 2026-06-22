@@ -54,6 +54,7 @@ const ProductCard: FC<Props> = ({ className = '', data, isLiked }) => {
         <AddToCardButton
           as={'button'}
           className="flex cursor-pointer items-center justify-center gap-2 rounded-full bg-neutral-900 px-4 py-2 text-xs/normal text-white shadow-lg hover:bg-neutral-800"
+          productId={data.handle!}
           title={title || ''}
           imageUrl={featuredImage?.src || ''}
           price={price || 0}

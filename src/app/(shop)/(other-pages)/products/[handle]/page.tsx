@@ -1,4 +1,5 @@
 import AccordionInfo from '@/components/AccordionInfo'
+import AddToCardButton from '@/components/AddToCardButton'
 import { Divider } from '@/components/Divider'
 import LikeButton from '@/components/LikeButton'
 import NcInputNumber from '@/components/NcInputNumber'
@@ -10,7 +11,6 @@ import SectionPromo2 from '@/components/SectionPromo2'
 import SectionSliderProductCard from '@/components/SectionSliderProductCard'
 import { getProductDetailByHandle, getProductReviews, getProducts } from '@/data/data'
 import Breadcrumb from '@/shared/Breadcrumb'
-import ButtonPrimary from '@/shared/Button/ButtonPrimary'
 import { StarIcon } from '@heroicons/react/24/solid'
 import { ShoppingBag03Icon } from '@hugeicons/core-free-icons'
 import { HugeiconsIcon } from '@hugeicons/react'
@@ -87,7 +87,17 @@ export default async function Page({ params }: { params: Promise<{ handle: strin
                   <NcInputNumber name="quantity" defaultValue={1} />
                 </div>
 
-                <ButtonPrimary className="flex-1" type="submit">
+                <AddToCardButton
+                  as={'button'}
+                  className="flex flex-1 cursor-pointer items-center justify-center gap-2 rounded-full bg-neutral-900 px-4 py-2 text-xs/normal text-white shadow-lg hover:bg-neutral-800"
+                  productId={product.handle!}
+                  title={title || ''}
+                  imageUrl={featuredImage?.src || ''}
+                  price={price || 0}
+                  quantity={1}
+                  size={selectedOptions?.find((option) => option.name === 'Size')?.value}
+                  color={selectedOptions?.find((option) => option.name === 'Color')?.value}
+                >
                   <HugeiconsIcon
                     icon={ShoppingBag03Icon}
                     size={20}
@@ -96,7 +106,7 @@ export default async function Page({ params }: { params: Promise<{ handle: strin
                     strokeWidth={1.5}
                   />
                   <span className="text-base/6 font-normal sm:ml-2.5">Add to cart</span>
-                </ButtonPrimary>
+                </AddToCardButton>
               </div>
             </fieldset>
           </ProductForm>
