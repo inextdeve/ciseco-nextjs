@@ -11,15 +11,16 @@ import ProductColorOptions from '@/components/ProductForm/ProductColorOptions'
 import ProductForm from '@/components/ProductForm/ProductForm'
 import ProductSizeOptions from '@/components/ProductForm/ProductSizeOptions'
 import { useAside } from '@/components/aside'
-import { TProductDetail, getProductDetailByHandle } from '@/data/data'
 import ButtonPrimary from '@/shared/Button/ButtonPrimary'
 import { Link } from '@/shared/link'
+import { useTRPC } from '@/trpc/client'
 import { ClockIcon, NoSymbolIcon, SparklesIcon } from '@heroicons/react/24/outline'
 import { StarIcon } from '@heroicons/react/24/solid'
 import { ShoppingBag03Icon } from '@hugeicons/core-free-icons'
 import { HugeiconsIcon } from '@hugeicons/react'
+import { useQuery, useQueryClient } from '@tanstack/react-query'
 import Image from 'next/image'
-import { FC, useEffect, useState } from 'react'
+import { FC } from 'react'
 
 interface ProductQuickViewProps {
   className?: string
@@ -27,24 +28,28 @@ interface ProductQuickViewProps {
 
 const ProductQuickView: FC<ProductQuickViewProps> = ({ className }) => {
   const { productQuickViewHandle: handle } = useAside()
+  const trpc = useTRPC()
+  const queryClient = useQueryClient()
 
-  const [product, setProduct] = useState<TProductDetail>()
+  // const [_, setProduct] = useState<TProductDetail>()
+
+  const { data: product } = useQuery(trpc.products.getOne.queryOptions({ id: handle! }))
 
   // Fetch product details by handle when the component mounts or when the handle changes
-  useEffect(() => {
-    if (!handle) {
-      return
-    }
+  // useEffect(() => {
+  //   if (!handle) {
+  //     return
+  //   }
 
-    const fetchProduct = async () => {
-      const response = await getProductDetailByHandle(handle)
-      if (!response) {
-        return
-      }
-      setProduct(response)
-    }
-    fetchProduct()
-  }, [handle])
+  //   const fetchProduct = async () => {
+  //     const response = await getProductDetailByHandle(handle)
+  //     if (!response) {
+  //       return
+  //     }
+  //     setProduct(response)
+  //   }
+  //   fetchProduct()
+  // }, [handle])
 
   if (!product) {
     return null
@@ -167,40 +172,7 @@ const ProductQuickView: FC<ProductQuickViewProps> = ({ className }) => {
         <Divider />
 
         {/* ---------- 5 ----------  */}
-        <AccordionInfo
-          data={[
-            {
-              name: 'Description',
-              content:
-                'Fashion is a form of self-expression and autonomy at a particular period and place and in a specific context, of clothing, footwear, lifestyle, accessories, makeup, hairstyle, and body posture.',
-            },
-            {
-              name: 'Features',
-              content: `<ul class="list-disc list-inside leading-7">
-                  <li>Material: 43% Sorona Yarn + 57% Stretch Polyester</li>
-                  <li>
-                  Casual pants waist with elastic elastic inside
-                  </li>
-                  <li>
-                    The pants are a bit tight so you always feel comfortable
-                  </li>
-                  <li>
-                    Excool technology application 4-way stretch
-                  </li>
-                </ul>`,
-            },
-            {
-              name: 'Shipping & Return',
-              content:
-                'We offer free shipping on all orders over $50. If you are not satisfied with your purchase, you can return it within 30 days for a full refund.',
-            },
-            {
-              name: 'Care Instructions',
-              content:
-                'Machine wash cold with like colors. Do not bleach. Tumble dry low. Iron low if needed. Do not dry clean.',
-            },
-          ]}
-        />
+        <AccordionInfo product={product} />
 
         <div className="mt-6 flex text-sm text-neutral-500">
           <p className="text-xs">

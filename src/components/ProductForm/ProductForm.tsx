@@ -1,7 +1,7 @@
 'use client'
 
 import { NotifyAddToCart } from '@/components/AddToCardButton'
-import { TProductDetail } from '@/data/data'
+import { ProductGetOne } from '@/modules/products/types'
 import Form from 'next/form'
 import React from 'react'
 import toast from 'react-hot-toast'
@@ -13,7 +13,7 @@ const ProductForm = ({
 }: {
   children?: React.ReactNode
   className?: string
-  product: TProductDetail
+  product: ProductGetOne
 }) => {
   const { featuredImage, title, price } = product
 

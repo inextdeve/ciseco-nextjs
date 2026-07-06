@@ -7,19 +7,34 @@ import Prices from '@/components/Prices'
 import ProductColorOptions from '@/components/ProductForm/ProductColorOptions'
 import ProductForm from '@/components/ProductForm/ProductForm'
 import ProductSizeOptions from '@/components/ProductForm/ProductSizeOptions'
-import SectionPromo2 from '@/components/SectionPromo2'
 import SectionSliderProductCard from '@/components/SectionSliderProductCard'
 import { getProductDetailByHandle, getProductReviews, getProducts } from '@/data/data'
 import Breadcrumb from '@/shared/Breadcrumb'
+import { getQueryClient, trpc } from '@/trpc/server'
 import { StarIcon } from '@heroicons/react/24/solid'
-import { ShoppingBag03Icon } from '@hugeicons/core-free-icons'
+import { ShoppingBag03Icon, WhatsappFreeIcons } from '@hugeicons/core-free-icons'
 import { HugeiconsIcon } from '@hugeicons/react'
 import { Metadata } from 'next'
+import Link from 'next/link'
 import { notFound } from 'next/navigation'
+import Markdown, { Components } from 'react-markdown'
 import GalleryImages from '../GalleryImages'
 import Policy from '../Policy'
-import ProductReviews from '../ProductReviews'
 import ProductStatus from '../ProductStatus'
+
+const markdownComponents: Components = {
+  h1: (props) => <h1 className="mb-6 text-2xl font-medium" {...props} />,
+  h2: (props) => <h2 className="mb-6 text-xl font-medium" {...props} />,
+  h3: (props) => <h3 className="mb-6 text-lg font-medium" {...props} />,
+  h4: (props) => <h4 className="mb-6 text-base font-medium" {...props} />,
+  p: (props) => <p className="mb-6 leading-relaxed" {...props} />,
+  ul: (props) => <ul className="mb-6 list-inside list-disc" {...props} />,
+  ol: (props) => <ol className="mb-6 list-inside list-decimal" {...props} />,
+  li: (props) => <li className="mb-1" {...props} />,
+  strong: (props) => <strong className="font-semibold" {...props} />,
+  code: (props) => <code className="rounded bg-gray-100 px-1 py-0.5" {...props} />,
+  blockquote: (props) => <blockquote className="my-4 border-l-4 pl-4 italic" {...props} />,
+}
 
 export async function generateMetadata({ params }: { params: Promise<{ handle: string }> }): Promise<Metadata> {
   const { handle } = await params
@@ -33,8 +48,10 @@ export async function generateMetadata({ params }: { params: Promise<{ handle: s
 }
 
 export default async function Page({ params }: { params: Promise<{ handle: string }> }) {
+  const queryClient = getQueryClient()
   const { handle } = await params
-  const product = await getProductDetailByHandle(handle)
+  // const product = await getProductDetailByHandle(handle)
+  const product = await queryClient.fetchQuery(trpc.products.getProductDetails.queryOptions({ id: handle }))
   const relatedProducts = (await getProducts()).slice(2, 8)
   const reviews = await getProductReviews(handle)
 
@@ -82,6 +99,20 @@ export default async function Page({ params }: { params: Promise<{ handle: strin
               </div>
 
               {/*  ---------- 4  QTY AND ADD TO CART BUTTON */}
+              <Link
+                target="_blank"
+                href={`https://api.whatsapp.com/send?phone=212720277895&text=${product.title}`}
+                className="flex flex-1 cursor-pointer items-center justify-center gap-2 rounded-full bg-[#25d366] px-4 py-4 text-xs/normal text-white shadow-lg"
+              >
+                <HugeiconsIcon
+                  icon={WhatsappFreeIcons}
+                  size={20}
+                  color="currentColor"
+                  className="hidden sm:block"
+                  strokeWidth={1.5}
+                />
+                <span className="text-base/6 font-normal sm:ml-2.5">Order via WhatsApp</span>
+              </Link>
               <div className="flex gap-x-3.5">
                 <div className="flex items-center justify-center rounded-full bg-neutral-100/70 px-2 py-3 sm:p-3.5 dark:bg-neutral-800/70">
                   <NcInputNumber name="quantity" defaultValue={1} />
@@ -116,7 +147,7 @@ export default async function Page({ params }: { params: Promise<{ handle: strin
           {/*  */}
 
           {/* ---------- 5 ----------  */}
-          <AccordionInfo />
+          <AccordionInfo product={product} />
 
           {/* ---------- 6 ----------  */}
           <div className="hidden xl:block">
@@ -127,26 +158,12 @@ export default async function Page({ params }: { params: Promise<{ handle: strin
     )
   }
 
-  const renderDetailSection = () => {
+  const renderDetailSection = (productDetails: string) => {
     return (
       <div className="">
         <h2 className="text-2xl font-semibold">Product Details</h2>
         <div className="prose prose-sm mt-7 sm:prose sm:max-w-4xl dark:prose-invert">
-          <p>
-            The patented eighteen-inch hardwood Arrowhead deck --- finely mortised in, makes this the strongest and most
-            rigid canoe ever built. You cannot buy a canoe that will afford greater satisfaction.
-          </p>
-          <p>
-            The St. Louis Meramec Canoe Company was founded by Alfred Wickett in 1922. Wickett had previously worked for
-            the Old Town Canoe Co from 1900 to 1914. Manufacturing of the classic wooden canoes in Valley Park, Missouri
-            ceased in 1978.
-          </p>
-          <ul>
-            <li>Regular fit, mid-weight t-shirt</li>
-            <li>Natural color, 100% premium combed organic cotton</li>
-            <li>Quality cotton grown without the use of herbicides or pesticides - GOTS certified</li>
-            <li>Soft touch water based printed in the USA</li>
-          </ul>
+          <Markdown components={markdownComponents}>{productDetails}</Markdown>
         </div>
       </div>
     )
@@ -177,9 +194,9 @@ export default async function Page({ params }: { params: Promise<{ handle: strin
         <div className="block xl:hidden">
           <Policy />
         </div>
-        {renderDetailSection()}
-        <Divider />
-        <ProductReviews reviewNumber={reviewNumber || 0} rating={rating || 1} reviews={reviews} />
+        {renderDetailSection(product.details)}
+        {/* <Divider />
+        <ProductReviews reviewNumber={reviewNumber || 0} rating={rating || 1} reviews={reviews} /> */}
         <Divider />
         {/* OTHER SECTION */}
         <SectionSliderProductCard
@@ -190,9 +207,7 @@ export default async function Page({ params }: { params: Promise<{ handle: strin
           headingClassName="mb-12 text-neutral-900 dark:text-neutral-50"
         />
         {/* SECTION */}
-        <div className="pb-20 lg:pt-16 xl:pb-28">
-          <SectionPromo2 />
-        </div>
+        <div className="pb-20 lg:pt-16 xl:pb-28">{/* <SectionPromo2 /> */}</div>
       </div>
     </main>
   )
