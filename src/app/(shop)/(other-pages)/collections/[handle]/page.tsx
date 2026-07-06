@@ -1,6 +1,5 @@
 import { Divider } from '@/components/Divider'
 import { FilterSortByMenuListBox } from '@/components/FilterSortByMenu'
-import { FiltersMenuTabs } from '@/components/FiltersMenu'
 import CollectionSlugView from '@/modules/collections/ui/views/collectionSlugView'
 import {
   Pagination,
@@ -20,7 +19,7 @@ export default async function Page({ params }: { params: Promise<{ handle: strin
     <main>
       {/* TABS FILTER */}
       <div className="flex flex-wrap items-center gap-2.5">
-        <FiltersMenuTabs />
+        {/* <FiltersMenuTabs /> */}
         <FilterSortByMenuListBox className="ml-auto" />
       </div>
 

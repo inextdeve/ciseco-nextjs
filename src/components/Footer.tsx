@@ -87,7 +87,7 @@ const Footer: React.FC = () => {
             <SocialsList1 />
           </div>
         </div>
-        {widgetMenus.map(renderWidgetMenuItem)}
+        {/* {widgetMenus.map(renderWidgetMenuItem)} */}
       </div>
     </div>
   )
