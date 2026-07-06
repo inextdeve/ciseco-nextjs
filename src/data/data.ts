@@ -753,7 +753,7 @@ export async function getCollections() {
       title: 'Accessories',
       handle: 'accessories',
       sortDescription: 'Top transparent',
-      description: 'Stylish accessories to complete your look. Explore our collection of trendy accessories.',
+      description: 'The perfect accessories to complement your handmade soaps.',
       image: {
         src: collectionImage6.src,
         width: collectionImage6.width,
@@ -786,7 +786,7 @@ export async function getCollections() {
       handle: 'charcoal-soap',
       sortDescription: 'Activated Charcoal Handmade Soap',
       description:
-        'Excoolent new arrivals for every occasion, from casual to formal. Explore our collection of trendy jackets that elevate your outfit.',
+        'Discover our handcrafted soaps, made by hand with high-quality natural ingredients. Gentle, moisturizing, and delicately scented, they provide care suitable for all skin types.',
       color: 'bg-orange-50',
       count: 77,
       image: {
@@ -802,7 +802,7 @@ export async function getCollections() {
       handle: 'lavender-soap',
       sortDescription: 'Lavender Patchouli Handmade Soap',
       description:
-        'Excoolent new arrivals for every occasion, from casual to formal. Explore our collection of trendy jackets that elevate your outfit.',
+        'Discover our handcrafted soaps, made by hand with high-quality natural ingredients. Gentle, moisturizing, and delicately scented, they provide care suitable for all skin types.',
       color: 'bg-green-50',
       count: 85,
       image: {
@@ -818,7 +818,7 @@ export async function getCollections() {
       handle: 'nila-soap',
       sortDescription: 'Daily Brightening </br> Soap',
       description:
-        'Excoolent new arrivals for every occasion, from casual to formal. Explore our collection of trendy jackets that elevate your outfit.',
+        'Discover our handcrafted soaps, made by hand with high-quality natural ingredients. Gentle, moisturizing, and delicately scented, they provide care suitable for all skin types.',
       color: 'bg-blue-50',
       count: 77,
       image: {
@@ -834,7 +834,7 @@ export async function getCollections() {
       handle: 'rose-soap',
       sortDescription: 'Touch of Floral </br> Elegance',
       description:
-        'Excoolent new arrivals for every occasion, from casual to formal. Explore our collection of trendy jackets that elevate your outfit.',
+        'Discover our handcrafted soaps, made by hand with high-quality natural ingredients. Gentle, moisturizing, and delicately scented, they provide care suitable for all skin types.',
       color: 'bg-red-50',
       count: 112,
       image: {
@@ -1003,7 +1003,7 @@ export async function getCollectionByHandle(handle: string) {
       id: 'gid://all',
       title: 'All products',
       handle: 'all',
-      description: 'Explore our entire collection of products, from clothing to accessories.',
+      description: 'Explore our entire collection of handmade soaps.',
       sortDescription: 'All products',
       color: 'bg-indigo-50',
       count: 77,
