@@ -59,13 +59,13 @@ const ProductSizeOptions = ({
         <Headless.RadioGroup value={sizeSelected} onChange={setSizeSelected} aria-label="size" name="size">
           <div className="flex justify-between text-sm font-medium">
             <Headless.Label>Size</Headless.Label>
-            <Headless.Button
+            {/* <Headless.Button
               className="cursor-pointer text-primary-600 hover:text-primary-500"
               onClick={() => setIsOpen(true)}
               as="p"
             >
               See sizing chart
-            </Headless.Button>
+            </Headless.Button> */}
           </div>
           <div className="mt-2.5 grid grid-cols-5 gap-2 sm:grid-cols-7">
             {sizeOptionValues.map((size) => {

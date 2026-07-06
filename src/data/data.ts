@@ -1033,34 +1033,73 @@ export async function getProducts() {
   return [
     {
       id: 'gid://10091',
-      title: 'Savon de Petrichor au charbon actif',
+      title: 'Activated Charcoal Petrichor Soap – Handmade Natural Soap',
       handle: 'petrichor-soap',
       createdAt: '2025-05-06T10:00:00-04:00',
       vendor: 'Blissdor',
-      price: 99,
+      price: 30,
       featuredImage: {
         src: charcoalSoap1.src,
         width: charcoalSoap1.width,
         height: charcoalSoap1.height,
-        alt: 'Savon de Petrichor au charbon actif',
+        alt: 'Activated Charcoal Petrichor Soap – Handmade Natural Soap',
       },
       images: [
         {
           src: charcoalSoap2.src,
           width: charcoalSoap2.width,
           height: charcoalSoap2.height,
-          alt: 'Savon de Petrichor au charbon actif',
+          alt: 'Activated Charcoal Petrichor Soap – Handmade Natural Soap',
         },
         {
           src: charcoalSoap3.src,
           width: charcoalSoap3.width,
           height: charcoalSoap3.height,
-          alt: 'Savon de Petrichor au charbon actif',
+          alt: 'Activated Charcoal Petrichor Soap – Handmade Natural Soap',
         },
       ],
-      reviewNumber: 87,
-      rating: 4.5,
+      description: `Experience the refreshing feeling of nature with our Activated Charcoal Petrichor Soap, carefully handcrafted using nourishing plant oils and natural ingredients. This artisan soap is designed to gently cleanse the skin while helping remove impurities and excess oil.`,
+      material: ['Activated charcoal', 'Shea butter', 'Olive oil', 'Castor oil', 'Coconut oil', 'Petrichor fragrance'],
+      details: `# Activated Charcoal Petrichor Soap – Handmade Natural Soap
+
+Experience the refreshing feeling of nature with our Activated Charcoal Petrichor Soap, carefully handcrafted using nourishing plant oils and natural ingredients. This artisan soap is designed to gently cleanse the skin while helping remove impurities and excess oil.
+
+Activated charcoal is well known for its deep-cleansing properties, helping draw out dirt and impurities from the skin. Combined with moisturizing plant oils, this soap leaves your skin feeling clean, soft, and refreshed.
+
+The petrichor scent brings a unique earthy aroma inspired by the smell of fresh rain on dry soil, creating a calming and natural bathing experience.
+
+Perfect for everyday use on face and body, this soap is suitable for most skin types and is ideal for anyone looking for a simple and natural skincare routine.
+
+## Benefits
+
+- Deep cleansing for the skin
+- Helps remove impurities and excess oil
+- Leaves skin feeling fresh and smooth
+- Suitable for face and body
+- Handmade with nourishing plant oils
+
+## Handmade Quality
+
+Each soap bar is handmade in small batches, making every piece unique. Slight variations in color or shape are part of the natural artisanal process.
+
+Please ask if you have any questions about my soap.
+
+**Soap weight:** 1.8oz`,
+      reviewNumber: 3,
+      rating: 5,
       status: 'New in',
+      collections: [
+        {
+          id: 'col-id-fix-1',
+          name: 'Handmade soap',
+          primary: true,
+          slug: 'handmade-soap',
+        },
+        {
+          id: 'col-id-fix-2',
+          name: 'Artisanal soap',
+        },
+      ],
       options: [
         {
           name: 'Color',
@@ -1081,18 +1120,6 @@ export async function getProducts() {
               swatch: null,
               name: '50 g',
             },
-            {
-              swatch: null,
-              name: '80 g',
-            },
-            {
-              swatch: null,
-              name: '100 g',
-            },
-            {
-              swatch: null,
-              name: '70 g',
-            },
           ],
         },
       ],
@@ -1106,44 +1133,85 @@ export async function getProducts() {
           value: '50 g',
         },
       ],
-      collections: ['1'],
     },
     {
       id: 'gid://1002',
-      title: 'Savon Sidr artisanal – Soin naturel pour les peaux sensibles',
+      title: 'Handmade Sidr Soap – Natural Care for Sensitive Skin',
       handle: 'sidr-soap',
       createdAt: '2025-05-07T09:30:00-04:00',
       vendor: 'ChicElegance',
-      price: 80,
+      price: 25,
       featuredImage: {
         src: sidrSoap1.src,
         width: sidrSoap1.width,
         height: sidrSoap1.height,
-        alt: 'Savon Sidr artisanal – Soin naturel pour les peaux sensibles',
+        alt: 'Handmade Sidr Soap – Natural Care for Sensitive Skin',
       },
       images: [
         {
           src: sidrSoap1.src,
           width: sidrSoap1.width,
           height: sidrSoap1.height,
-          alt: 'Savon Sidr artisanal – Soin naturel pour les peaux sensibles',
+          alt: 'Handmade Sidr Soap – Natural Care for Sensitive Skin',
         },
         {
           src: sidrSoap2.src,
           width: sidrSoap2.width,
           height: sidrSoap2.height,
-          alt: 'Savon Sidr artisanal – Soin naturel pour les peaux sensibles',
+          alt: 'Handmade Sidr Soap – Natural Care for Sensitive Skin',
         },
         {
           src: sidrSoap3.src,
           width: sidrSoap3.width,
           height: sidrSoap3.height,
-          alt: 'Savon Sidr artisanal – Soin naturel pour les peaux sensibles',
+          alt: 'Handmade Sidr Soap – Natural Care for Sensitive Skin',
         },
       ],
-      reviewNumber: 95,
-      rating: 4.7,
+      description: `Give your skin a moment of softness with our handmade Sidr soap, crafted by hand using nourishing vegetable oils and natural ingredients. Inspired by traditional natural skincare practices, this soap gently cleanses the skin while respecting its natural balance.`,
+      material: ['Olive oil', 'Shea butter', 'Castor oil', 'Coconut oil', 'Lavender oil', 'Sidr leaves'],
+      details: `# Handmade Sidr Soap – Natural Care for Sensitive Skin
+
+Give your skin a moment of softness with our handmade Sidr soap, crafted by hand using nourishing vegetable oils and natural ingredients. Inspired by traditional natural skincare practices, this soap gently cleanses the skin while respecting its natural balance.
+
+Sidr leaves (jujube leaves) are known for their purifying and soothing properties. Combined with rich vegetable oils, they help leave the skin clean, soft, and comfortable after each use.
+
+## Benefits
+
+- Gently cleanses the skin
+- Helps soothe sensitive skin
+- Nourishes and softens the skin
+- Suitable for face and body
+- Ideal for a natural skincare routine
+
+## Natural Ingredients
+
+Our soap is made with a selection of simple and nourishing ingredients:
+
+- Olive oil – nourishes and protects the skin
+- Shea butter – hydrates and softens
+- Castor oil – provides a creamy lather
+- Coconut oil – cleanses and purifies
+- Lavender oil – adds a naturally fragrant and soothing touch
+- Sidr leaves (jujube) – known for their purifying properties
+
+## Handmade Craftsmanship
+
+Each soap is handmade in small batches, ensuring a unique and authentic product. The shape and color may vary slightly, which is a sign of a truly artisanal product.`,
+      reviewNumber: 3,
+      rating: 5,
       status: 'Best Seller',
+      collections: [
+        {
+          id: 'col-id-fix-1',
+          name: 'Handmade soap',
+          primary: true,
+          slug: 'handmade-soap',
+        },
+        {
+          id: 'col-id-fix-2',
+          name: 'Artisanal soap',
+        },
+      ],
       options: [
         {
           name: 'Color',
@@ -1180,45 +1248,76 @@ export async function getProducts() {
     },
     {
       id: 'gid://1003',
-      title: 'Savon artisanal à la rose pour hydrater',
+      title: 'Handmade Rose Soap for Hydrating',
       handle: 'rose-soap',
       createdAt: '2025-05-08T11:15:00-04:00',
       vendor: 'Blissdor',
-      price: 65,
+      price: 20,
       featuredImage: {
         src: roseSoap1.src,
         width: roseSoap1.width,
         height: roseSoap1.height,
-        alt: 'Savon artisanal à la rose pour hydrater',
+        alt: 'Handmade Rose Soap for Hydrating',
       },
       images: [
         {
           src: roseSoap1.src,
           width: roseSoap1.width,
           height: roseSoap1.height,
-          alt: 'Savon artisanal à la rose pour hydrater',
+          alt: 'Handmade Rose Soap for Hydrating',
         },
         {
           src: roseSoap2.src,
           width: roseSoap2.width,
           height: roseSoap2.height,
-          alt: 'Savon artisanal à la rose pour hydrater',
+          alt: 'Handmade Rose Soap for Hydrating',
         },
         {
           src: roseSoap3.src,
           width: roseSoap3.width,
           height: roseSoap3.height,
-          alt: 'Savon artisanal à la rose pour hydrater',
+          alt: 'Handmade Rose Soap for Hydrating',
         },
         {
           src: roseSoap4.src,
           width: roseSoap4.width,
           height: roseSoap4.height,
-          alt: 'Savon artisanal à la rose pour hydrater',
+          alt: 'Handmade Rose Soap for Hydrating',
         },
       ],
-      reviewNumber: 120,
-      rating: 4.3,
+      description: `Treat your skin to a moment of care with our handmade Rose Soap, enriched with rose oil and rose essential oil, known for their hydrating, soothing, and regenerating properties.`,
+      material: ['Shea butter', 'Rose oil', 'Rose essential oil'],
+      details: `# Rose Soap – Softness & Radiance for Your Skin
+
+Treat your skin to a moment of care with our handmade Rose Soap, enriched with rose oil and rose essential oil, known for their hydrating, soothing, and regenerating properties.
+
+This gentle soap helps maintain the skin’s natural moisture while leaving it soft, smooth, and delicately scented. Its light floral aroma provides a relaxing and refreshing skincare experience.
+
+Perfect for daily use on both face and body, it is especially suitable for those looking for a natural and gentle skincare routine.
+
+## Benefits
+
+- Helps hydrate and soften the skin
+- Soothes sensitive and delicate skin
+- Supports a youthful-looking appearance
+- Enhances skin radiance and freshness
+- Leaves a soft, natural floral scent
+
+## Key Ingredients
+
+- Shea butter – moisturizes and nourishes the skin
+- Rose oil – known for hydrating and softening properties
+- Rose essential oil – provides a delicate scent and soothing effect
+
+## Handmade Quality
+
+Each soap bar is handmade in small batches, making every piece unique. Slight variations in color or shape are part of the natural artisanal process.
+
+Please ask if you have any questions about my soap.
+
+**Soap weight:** 1.8oz`,
+      reviewNumber: 2,
+      rating: 5,
       status: 'New in',
       options: [
         {
@@ -1253,30 +1352,67 @@ export async function getProducts() {
           value: '50 g',
         },
       ],
+      collections: [
+        {
+          id: 'col-id-fix-1',
+          name: 'Handmade soap',
+          primary: true,
+          slug: 'handmade-soap',
+        },
+        {
+          id: 'col-id-fix-2',
+          name: 'Artisanal soap',
+        },
+      ],
     },
     {
       id: 'gid://1009',
-      title: 'Savon artisanal bio à la lavande',
+      title: 'Organic Lavender handmade Soap',
       handle: 'lavender-soap',
       createdAt: '2025-05-08T11:15:00-04:00',
       vendor: 'Blissdor',
-      price: 65,
+      price: 25,
       featuredImage: {
         src: lavenderSoap1.src,
         width: lavenderSoap1.width,
         height: lavenderSoap1.height,
-        alt: 'Savon artisanal bio à la lavande',
+        alt: 'Organic Lavender handmade Soap',
       },
       images: [
         {
           src: lavenderSoap2.src,
           width: lavenderSoap2.width,
           height: lavenderSoap2.height,
-          alt: 'Savon artisanal bio à la lavande',
+          alt: 'Organic Lavender handmade Soap',
         },
       ],
-      reviewNumber: 120,
-      rating: 4.3,
+      description: `Enjoy a moment of calm and relaxation with our handmade Lavender Soap, enriched with natural lavender and nourishing ingredients. Lavender is well known for its soothing and relaxing properties, making this soap perfect for a peaceful skincare routine.`,
+      material: ['Lavender essential oil', 'Dried lavender flowers', 'Shea butter'],
+      details: `# Lavender Soap – Gentle Care & Relaxation
+
+Enjoy a moment of calm and relaxation with our handmade Lavender Soap, enriched with natural lavender and nourishing ingredients. Lavender is well known for its soothing and relaxing properties, making this soap perfect for a peaceful skincare routine.
+
+The delicate natural fragrance of lavender creates a feeling of calm and well-being with every use, while the nourishing ingredients help leave the skin soft, fresh, and comfortable.
+
+This gentle soap is suitable for daily use on the face and body, making it a wonderful addition to your natural skincare routine.
+
+## Benefits
+
+- Helps soothe the skin and minor irritations
+- May help calm blemishes and small breakouts
+- Relaxing and stress-relieving lavender aroma
+- Leaves the skin soft and refreshed
+- Suitable for face and body
+
+## Handmade Quality
+
+Each soap bar is handmade in small batches, making every piece unique. Slight variations in color or shape are part of the natural artisanal process.
+
+Please ask if you have any questions about my soap.
+
+**Soap weight:** 1.8oz.`,
+      reviewNumber: 2,
+      rating: 5,
       status: 'New in',
       options: [
         {
@@ -1311,43 +1447,92 @@ export async function getProducts() {
           value: '50 g',
         },
       ],
+      collections: [
+        {
+          id: 'col-id-fix-1',
+          name: 'Handmade soap',
+          primary: true,
+          slug: 'handmade-soap',
+        },
+        {
+          id: 'col-id-fix-2',
+          name: 'Artisanal soap',
+        },
+      ],
     },
     {
       id: 'gid://1005',
-      title: "Savon aux graines noires – Fait main et naturel à l'huile de nigelle",
+      title: 'Black Seed Soap – Handmade and Natural with Nigella oil',
       handle: 'linen-blazer',
       createdAt: '2025-05-10T08:45:00-04:00',
       vendor: 'TailoredFit',
-      price: 95,
+      price: 25,
       featuredImage: {
         src: nigellaSoap1.src,
         width: nigellaSoap1.width,
         height: nigellaSoap1.height,
-        alt: "Savon aux graines noires – Fait main et naturel à l'huile de nigelle",
+        alt: 'Black Seed Soap – Handmade and Natural with Nigella oil',
       },
       images: [
         {
           src: nigellaSoap2.src,
           width: nigellaSoap2.width,
           height: nigellaSoap2.height,
-          alt: "Savon aux graines noires – Fait main et naturel à l'huile de nigelle",
+          alt: 'Black Seed Soap – Handmade and Natural with Nigella oil',
         },
         {
           src: nigellaSoap3.src,
           width: nigellaSoap3.width,
           height: nigellaSoap3.height,
-          alt: "Savon aux graines noires – Fait main et naturel à l'huile de nigelle",
+          alt: 'Black Seed Soap – Handmade and Natural with Nigella oil',
         },
         {
           src: nigellaSoap4.src,
           width: nigellaSoap4.width,
           height: nigellaSoap4.height,
-          alt: "Savon aux graines noires – Fait main et naturel à l'huile de nigelle",
+          alt: 'Black Seed Soap – Handmade and Natural with Nigella oil',
         },
       ],
+      description: `Discover the benefits of nature with our handmade Nigella Soap, enriched with black seed oil (Nigella oil), a powerful natural ingredient known for its purifying, soothing, and nourishing properties.`,
+      material: ['Negella oil', 'Negella seeds', 'Shea butter'],
+      details: `# Nigella Soap – Purifying & Nourishing Skincare
+
+Discover the benefits of nature with our handmade Nigella Soap, enriched with black seed oil (Nigella oil), a powerful natural ingredient known for its purifying, soothing, and nourishing properties.
+
+This soap is ideal for those looking for a natural solution for acne-prone or sensitive skin. It helps cleanse the skin, regulate excess oil, and promote a clearer, healthier complexion.
+
+Gentle yet effective, it can be used daily on both the face and body, leaving your skin feeling clean, soft, and balanced.
+
+## Benefits
+
+- Helps fight acne and skin imperfections
+- Purifies the skin and controls excess oil
+- Soothes irritation and redness
+- Nourishes and helps repair the skin
+- Supports a smoother, more youthful appearance
+
+## Handmade Quality
+
+Each soap bar is handmade in small batches, making every piece unique. Slight variations in color or shape are part of the natural artisanal process.
+
+Please ask if you have any questions about my soap.
+
+**Soap weight:** 1.8oz`,
       reviewNumber: 60,
       rating: 4.4,
       status: 'New in',
+      collections: [
+        {
+          id: 'col-id-fix-1',
+          name: 'Handmade soap',
+          primary: true,
+          slug: 'handmade-soap',
+        },
+        {
+          id: 'col-id-fix-2',
+          name: 'Artisanal soap',
+        },
+      ],
       options: [
         {
           name: 'Color',
@@ -1419,11 +1604,9 @@ export async function getProductDetailByHandle(handle: string) {
     status: 'In Stock',
     breadcrumbs: [
       { id: 1, name: 'Home', href: '/' },
-      { id: 2, name: 'Jackets', href: '/collections/jackets' },
+      { id: 2, name: product.collections[0].name, href: `/collections/${product.collections[0].slug}` },
     ],
-    description:
-      'Fashion is a form of self-expression and autonomy at a particular period and place and in a specific context, of clothing, footwear, lifestyle, accessories, makeup, hairstyle, and body posture.',
-    publishedAt: '2019-03-27T17:43:25Z',
+    publishedAt: '2026-05-27T17:43:25Z',
     selectedOptions: [
       {
         name: 'Color',
@@ -1441,9 +1624,8 @@ export async function getProductDetailByHandle(handle: string) {
       'Excool technology application 4-way stretch',
     ],
     careInstruction:
-      'Machine wash cold with like colors. Do not bleach. Tumble dry low. Iron low if needed. Do not dry clean.',
-    shippingAndReturn:
-      'We offer free shipping on all orders over $50. If you are not satisfied with your purchase, you can return it within 30 days for a full refund.',
+      'This gentle soap is suitable for daily use on the face and body, making it a wonderful addition to your natural skincare routine.',
+    shippingAndReturn: 'We offer free shipping on all orders over 500 MAD.',
   }
 }
 

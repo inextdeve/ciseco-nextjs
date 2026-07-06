@@ -1,12 +1,21 @@
 import { DEFAULT_PAGE, DEFAULT_PAGE_SIZE, MAX_PAGE_SIZE, MIN_PAGE_SIZE } from '@/constants'
-import { getProductByHandle, getProducts } from '@/data/data'
+import { getProductDetailByHandle, getProducts } from '@/data/data'
 import { baseProcedure, createTRPCRouter } from '@/trpc/init'
 import { TRPCError } from '@trpc/server'
 import z from 'zod'
 
 export const productsRouter = createTRPCRouter({
+  getProductDetails: baseProcedure.input(z.object({ id: z.string() })).query(async ({ input, ctx }) => {
+    const product = await getProductDetailByHandle(input.id)
+
+    if (!product) {
+      throw new TRPCError({ code: 'NOT_FOUND', message: 'Product not found' })
+    }
+
+    return product
+  }),
   getOne: baseProcedure.input(z.object({ id: z.string() })).query(async ({ input, ctx }) => {
-    const product = getProductByHandle(input.id)
+    const product = getProductDetailByHandle(input.id)
 
     if (!product) {
       throw new TRPCError({ code: 'NOT_FOUND', message: 'Product not found' })
