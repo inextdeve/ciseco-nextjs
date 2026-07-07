@@ -16,15 +16,15 @@ export const metadata: Metadata = {
 const info = [
   {
     title: '🗺 ADDRESS',
-    desc: 'Photo booth tattooed prism, portland taiyaki hoodie neutra typewriter',
+    desc: 'Anywhere in the nature',
   },
   {
     title: '💌 EMAIL',
-    desc: 'nc.example@example.com',
+    desc: 'contact@blissdor.ma',
   },
   {
     title: '☎ PHONE',
-    desc: '000-123-456-7890',
+    desc: '+212 720277895',
   },
 ]
 

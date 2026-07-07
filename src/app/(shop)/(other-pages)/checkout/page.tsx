@@ -16,7 +16,7 @@ import Information from './Information'
 
 export const metadata: Metadata = {
   title: 'Checkout Page',
-  description: 'Effective checkout page for your e-commerce website',
+  description: 'Checkout',
 }
 
 const CheckoutPage = async () => {

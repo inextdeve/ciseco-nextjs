@@ -13,12 +13,35 @@ const poppins = Poppins({
 
 export const metadata: Metadata = {
   title: {
-    template: '%s - Ciseco',
-    default: 'Ciseco',
+    template: '%s | Blissdor',
+    default: 'Blissdor',
   },
   description:
-    'Ciseco is a modern and elegant template for Next.js, Tailwind CSS, and TypeScript. It is designed to be simple and easy to use, with a focus on performance and accessibility.',
-  keywords: ['Next.js', 'Tailwind CSS', 'TypeScript', 'Ciseco', 'Headless UI', 'Fashion', 'E-commerce'],
+    'Blissdor creates handmade natural soaps crafted with premium botanical oils and nourishing ingredients. Discover artisan skincare for healthy, radiant, and beautiful skin.',
+  keywords: [
+    'Blissdor',
+    'Blissdor soaps',
+    'Blissdor handmade soap',
+    'handmade natural soap',
+    'handmade soap',
+    'natural soap',
+    'artisan soap',
+    'botanical skincare',
+    'natural skincare',
+    'premium handmade soap',
+    'luxury handmade soap',
+    'organic soap',
+    'herbal soap',
+    'plant-based soap',
+    'shea butter soap',
+    'olive oil soap',
+    'charcoal soap',
+    'lavender soap',
+    'black seed soap',
+    'blue nila soap',
+    'sidr soap',
+    'essential oil soap',
+  ],
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

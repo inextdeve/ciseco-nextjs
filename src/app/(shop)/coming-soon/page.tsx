@@ -5,7 +5,7 @@ import Link from 'next/link'
 
 export const metadata: Metadata = {
   title: 'Coming Soon',
-  description: 'Coming soon page for the application',
+  description: 'Coming soon page for blissdor.ma',
 }
 
 const Page = () => {

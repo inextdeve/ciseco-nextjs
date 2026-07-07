@@ -20,7 +20,7 @@ import Form from 'next/form'
 
 export const metadata: Metadata = {
   title: 'Search',
-  description: 'Search page for products',
+  description: 'Search page for soaps',
 }
 
 const PageSearch = async () => {
