@@ -121,7 +121,10 @@ export default async function Page({ params }: { params: Promise<{ handle: strin
         {/*  */}
         <div className="w-14 border-b border-neutral-200 dark:border-neutral-700"></div>
         {/*  */}
-        <AccordionInfo panelClassName="p-4 pt-3.5 text-neutral-600 text-base dark:text-neutral-300 leading-7" />
+        <AccordionInfo
+          product={product}
+          panelClassName="p-4 pt-3.5 text-neutral-600 text-base dark:text-neutral-300 leading-7"
+        />
       </div>
     )
   }

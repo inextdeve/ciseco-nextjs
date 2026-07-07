@@ -10,8 +10,6 @@ import SectionStatistic from './SectionStatistic'
 
 export const metadata: Metadata = {
   title: 'About Us',
-  description:
-    'About Us. We’re impartial and independent, and every day we create distinctive, world-class programmes and content which inform, educate and entertain millions of people in the around the world.',
 }
 
 const PageAbout = () => {

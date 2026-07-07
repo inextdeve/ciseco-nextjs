@@ -17,8 +17,7 @@ export async function generateMetadata({ params }: { params: Promise<{ handle: s
   if (!post) {
     return {
       title: 'Blog',
-      description:
-        'Stay up-to-date with the latest industry news as our marketing teams finds new ways to re-purpose old CSS tricks articles.',
+      description: 'Stay up-to-date with the latest industry news.',
     }
   }
   const { title, excerpt } = post

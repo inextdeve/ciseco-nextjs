@@ -13,7 +13,7 @@ import Link from 'next/link'
 
 export const metadata: Metadata = {
   title: 'Cart Page',
-  description: 'Effective cart page for your e-commerce website',
+  description: 'Your cart for your best soaps',
 }
 
 const CartPage = async () => {
