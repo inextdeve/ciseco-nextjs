@@ -1,14 +1,5 @@
 import collectionImage1 from '@/images/collections/1.png'
-import collectionImage2 from '@/images/collections/2.png'
-import collectionImage3 from '@/images/collections/3.png'
-import collectionImage4 from '@/images/collections/4.png'
-import collectionImage5 from '@/images/collections/5.png'
 import collectionImage6 from '@/images/collections/6.png'
-import collectionImage7 from '@/images/collections/7.png'
-import boothImage1 from '@/images/collections/booth1.png'
-import boothImage2 from '@/images/collections/booth2.png'
-import boothImage3 from '@/images/collections/booth3.png'
-import boothImage4 from '@/images/collections/booth4.png'
 import productImage1 from '@/images/products/p1.jpg'
 
 import charcoalSoap1 from '@/images/products/charcoal_soap_1.webp'
@@ -688,66 +679,7 @@ export async function getCollections() {
         alt: 'handmade soap',
       },
     },
-    {
-      id: 'gid://2',
-      title: 'T-Shirts',
-      handle: 't-shirts',
-      sortDescription: 'Best sellers',
-      description: 'Casual t-shirts for everyday wear, combining comfort and style effortlessly. ',
-      image: {
-        src: collectionImage2.src,
-        width: collectionImage2.width,
-        height: collectionImage2.height,
-        alt: 'Explore new arrivals',
-      },
-      color: 'bg-indigo-50',
-      count: 155,
-    },
-    {
-      id: 'gid://3',
-      title: 'Jeans',
-      handle: 'jeans',
-      sortDescription: 'Best sellers',
-      description: 'Trendy jeans for a casual yet stylish look. Perfect for any occasion. ',
-      image: {
-        src: collectionImage3.src,
-        width: collectionImage3.width,
-        height: collectionImage3.height,
-        alt: 'Explore new arrivals',
-      },
-      color: 'bg-indigo-50',
-      count: 35,
-    },
-    {
-      id: 'gid://4',
-      title: 'Coats',
-      handle: 'coats',
-      sortDescription: 'Best seasonal',
-      description: 'Elegant coats for every season, combining warmth and style. Find your perfect outerwear.',
-      image: {
-        src: collectionImage4.src,
-        width: collectionImage4.width,
-        height: collectionImage4.height,
-        alt: 'Explore new arrivals',
-      },
-      color: 'bg-indigo-50',
-      count: 87,
-    },
-    {
-      id: 'gid://5',
-      title: 'Shoes',
-      handle: 'shoes',
-      sortDescription: 'Top rated',
-      description: 'Trendy shoes for every occasion, from casual to formal. ',
-      image: {
-        src: collectionImage5.src,
-        width: collectionImage5.width,
-        height: collectionImage5.height,
-        alt: 'Explore new arrivals',
-      },
-      color: 'bg-indigo-50',
-      count: 114,
-    },
+
     {
       id: 'gid://6',
       title: 'Accessories',
@@ -758,21 +690,6 @@ export async function getCollections() {
         src: collectionImage6.src,
         width: collectionImage6.width,
         height: collectionImage6.height,
-        alt: 'Explore new arrivals',
-      },
-      color: 'bg-indigo-50',
-      count: 55,
-    },
-    {
-      id: 'gid://7',
-      title: 'Bags',
-      handle: 'bags',
-      sortDescription: 'Best trends',
-      description: 'Stylish bags for every occasion, from casual to formal. Find your perfect bag.',
-      image: {
-        src: collectionImage7.src,
-        width: collectionImage7.width,
-        height: collectionImage7.height,
         alt: 'Explore new arrivals',
       },
       color: 'bg-indigo-50',
@@ -841,72 +758,6 @@ export async function getCollections() {
         src: roseSoap.src,
         width: roseSoap.width,
         height: roseSoap.height,
-        alt: 'Explore new arrivals',
-      },
-    },
-
-    // Brands collections 12 - 15
-    {
-      id: 'gid://12',
-      title: 'Sport Kits',
-      handle: 'sport-kits',
-      sortDescription: '20+ categories',
-      description:
-        'Excoolent new arrivals for every occasion, from casual to formal. Explore our collection of trendy jackets that elevate your outfit.',
-      color: 'bg-neutral-100',
-      count: 77,
-      image: {
-        src: boothImage1.src,
-        width: boothImage1.width,
-        height: boothImage1.height,
-        alt: 'Explore new arrivals',
-      },
-    },
-    {
-      id: 'gid://13',
-      title: 'Beauty Products',
-      handle: 'beauty-products',
-      color: 'bg-neutral-100',
-      sortDescription: '20+ categories',
-      description:
-        'Excoolent new arrivals for every occasion, from casual to formal. Explore our collection of trendy jackets that elevate your outfit.',
-      count: 77,
-      image: {
-        src: boothImage2.src,
-        width: boothImage2.width,
-        height: boothImage2.height,
-        alt: 'Explore new arrivals',
-      },
-    },
-    {
-      id: 'gid://14',
-      title: 'Travel Kits',
-      handle: 'travel-kits',
-      sortDescription: '20+ categories',
-      description:
-        'Excoolent new arrivals for every occasion, from casual to formal. Explore our collection of trendy jackets that elevate your outfit.',
-      color: 'bg-neutral-100',
-      count: 77,
-      image: {
-        src: boothImage3.src,
-        width: boothImage3.width,
-        height: boothImage3.height,
-        alt: 'Explore new arrivals',
-      },
-    },
-    {
-      id: 'gid://15',
-      title: 'Pets Food',
-      handle: 'pets-food',
-      sortDescription: '44+ categories',
-      description:
-        'Excoolent new arrivals for every occasion, from casual to formal. Explore our collection of trendy jackets that elevate your outfit.',
-      color: 'bg-neutral-100',
-      count: 99,
-      image: {
-        src: boothImage4.src,
-        width: boothImage4.width,
-        height: boothImage4.height,
         alt: 'Explore new arrivals',
       },
     },

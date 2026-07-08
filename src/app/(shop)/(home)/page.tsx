@@ -16,9 +16,7 @@ export const metadata: Metadata = {
 async function PageHome() {
   const queryClient = getQueryClient()
 
-  const { items: featuredCollections } = await queryClient.fetchQuery(
-    trpc.collections.getMany.queryOptions({ page: 2, pageSize: 4 })
-  )
+  const { items: featuredCollections } = await queryClient.fetchQuery(trpc.collections.getMany.queryOptions({}))
   // const allCollections = await getCollections()
   // const departmentCollections = allCollections.slice(11, 15)
   // const groupCollections = await getGroupCollections()
@@ -34,7 +32,7 @@ async function PageHome() {
       {/* <CommitmentSection /> */}
       {/* <FeaturesSection /> */}
       {/* <TestimonialsSection /> */}
-      <SectionCollectionSlider className="mt-24 lg:mt-32" collections={featuredCollections} />
+      <SectionCollectionSlider className="mt-24 lg:mt-32" collections={featuredCollections.slice(2)} />
 
       <div className="relative container my-24 flex flex-col gap-y-24 lg:my-32 lg:gap-y-32">
         <SectionSliderProductCard data={carouselProducts1} />

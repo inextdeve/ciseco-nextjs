@@ -22,16 +22,20 @@ export const collectionsRouter = createTRPCRouter({
       })
     )
     .query(async ({ ctx, input }) => {
-      // TODO: Implement pagination and search logic
       const { page, pageSize } = input
 
       const collections = await getCollections()
 
-      const data = collections.slice(page * pageSize - 1, pageSize + (page * pageSize - 1))
+      const start = (page - 1) * pageSize
+      const data = collections.slice(start, start + pageSize)
 
-      const total = { count: collections.length }
-      const totalPages = Math.ceil(total.count / pageSize)
+      const total = collections.length
+      const totalPages = Math.ceil(total / pageSize)
 
-      return { items: data, total: total.count, totalPages }
+      return {
+        items: data,
+        total,
+        totalPages,
+      }
     }),
 })

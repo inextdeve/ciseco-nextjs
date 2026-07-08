@@ -16,6 +16,8 @@ export const metadata: Metadata = {
   description: 'Your cart for your best soaps',
 }
 
+export const dynamic = 'force-dynamic'
+
 const CartPage = async () => {
   const queryClient = getQueryClient()
 

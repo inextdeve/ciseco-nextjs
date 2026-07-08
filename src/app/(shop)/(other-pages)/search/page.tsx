@@ -1,7 +1,5 @@
 import { Divider } from '@/components/Divider'
-import HeaderFilterSection from '@/components/HeaderFilterSection'
 import ProductCard from '@/components/ProductCard'
-import SectionPromo1 from '@/components/SectionPromo1'
 import SectionSliderLargeProduct from '@/components/SectionSliderLargeProduct'
 import { getProducts } from '@/data/data'
 import ButtonCircle from '@/shared/Button/ButtonCircle'
@@ -71,7 +69,7 @@ const PageSearch = async () => {
       <div className="container flex flex-col gap-y-16 py-16 lg:gap-y-28 lg:pt-20 lg:pb-28">
         <main>
           {/* FILTER */}
-          <HeaderFilterSection />
+          {/* <HeaderFilterSection /> */}
 
           {/* LOOP ITEMS */}
           <div className="mt-8 grid gap-x-8 gap-y-10 sm:grid-cols-2 lg:mt-10 lg:grid-cols-3 xl:grid-cols-4">
@@ -99,8 +97,8 @@ const PageSearch = async () => {
 
         <Divider />
         <SectionSliderLargeProduct products={featuredProducts} />
-        <Divider />
-        <SectionPromo1 />
+        {/* <Divider /> */}
+        {/* <SectionPromo1 /> */}
       </div>
     </div>
   )

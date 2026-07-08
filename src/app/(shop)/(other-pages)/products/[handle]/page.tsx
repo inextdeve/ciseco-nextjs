@@ -22,6 +22,16 @@ import GalleryImages from '../GalleryImages'
 import Policy from '../Policy'
 import ProductStatus from '../ProductStatus'
 
+export async function generateStaticParams() {
+  const queryClient = getQueryClient()
+
+  const products = await queryClient.fetchQuery(trpc.products.getMany.queryOptions({}))
+
+  return products.items.map((p) => ({
+    handle: p.handle,
+  }))
+}
+
 const markdownComponents: Components = {
   h1: (props) => <h1 className="mb-6 text-2xl font-medium" {...props} />,
   h2: (props) => <h2 className="mb-6 text-xl font-medium" {...props} />,
