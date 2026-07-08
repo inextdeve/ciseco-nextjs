@@ -1,7 +1,6 @@
 import facebook from '@/images/socials/facebook.svg'
-import telegram from '@/images/socials/telegram.svg'
-import twitter from '@/images/socials/twitter.svg'
-import youtube from '@/images/socials/youtube.svg'
+import instagram from '@/images/socials/instagram.svg'
+import whatsapp from '@/images/socials/whatsapp.svg'
 import clsx from 'clsx'
 import Image from 'next/image'
 import { FC } from 'react'
@@ -13,10 +12,10 @@ interface SocialsListProps {
 }
 
 const socialsDemo = [
-  { name: 'Facebook', icon: facebook, href: '#' },
-  { name: 'Twitter', icon: twitter, href: '#' },
-  { name: 'Youtube', icon: youtube, href: '#' },
-  { name: 'Telegram', icon: telegram, href: '#' },
+  { name: 'Facebook', icon: facebook, href: 'https://web.facebook.com/profile.php?id=61583959302268' },
+  { name: 'Instagram', icon: instagram, href: 'https://www.instagram.com/blissdor.ma/' },
+  { name: 'Whatsapp', icon: whatsapp, href: 'https://api.whatsapp.com/send?phone=212720277895' },
+  // { name: 'Twitter', icon: twitter, href: '#' },
 ]
 
 const SocialsList: FC<SocialsListProps> = ({ className = '', itemClass = 'w-6 h-6' }) => {
