@@ -19,6 +19,8 @@ export const metadata: Metadata = {
   description: 'Checkout',
 }
 
+export const dynamic = 'force-dynamic'
+
 const CheckoutPage = async () => {
   const queryClient = getQueryClient()
 

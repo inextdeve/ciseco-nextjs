@@ -1,5 +1,7 @@
 'use client'
 import { Aside } from '@/components/aside/aside'
+import CartBG from '@/images/cart-bg.png'
+import { authClient } from '@/lib/auth-client'
 import ButtonPrimary from '@/shared/Button/ButtonPrimary'
 import ButtonSecondary from '@/shared/Button/ButtonSecondary'
 import { useTRPC } from '@/trpc/client'
@@ -16,6 +18,8 @@ const AsideSidebarCart = ({ className = '' }: Props) => {
   const trpc = useTRPC()
   const queryClient = useQueryClient()
 
+  const session = authClient.useSession()
+
   const { data: cart } = useQuery(trpc.cart.get.queryOptions())
 
   const removeProductLine = useMutation(
@@ -31,6 +35,23 @@ const AsideSidebarCart = ({ className = '' }: Props) => {
 
   const handleRemoveProductLine = async (id: string) => {
     removeProductLine.mutate({ id })
+  }
+
+  if (!session.data?.user.id) {
+    return (
+      <Aside openFrom="right" type="cart" heading="Shopping Cart">
+        <div className={clsx('flex h-full flex-col', className)}>
+          <div className="z-10 mt-20 flex flex-col items-center rounded-sm p-4 text-center">
+            <p>Please login to see your cart.</p>
+            <Link className="pt-2 text-sm text-blue-300 underline" href={'/login'}>
+              {' '}
+              Login{' '}
+            </Link>
+          </div>
+        </div>
+        <img src={CartBG.src} className="absolute bottom-0 left-0" />
+      </Aside>
+    )
   }
 
   return (

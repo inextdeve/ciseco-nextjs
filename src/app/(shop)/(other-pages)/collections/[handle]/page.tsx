@@ -10,6 +10,16 @@ import {
 } from '@/shared/Pagination/Pagination'
 import { getQueryClient, trpc } from '@/trpc/server'
 
+export async function generateStaticParams() {
+  const queryClient = getQueryClient()
+
+  const collections = await queryClient.fetchQuery(trpc.collections.getMany.queryOptions({}))
+
+  return collections.items.map((p) => ({
+    handle: p.handle,
+  }))
+}
+
 export default async function Page({ params }: { params: Promise<{ handle: string }> }) {
   const { handle } = await params
   const queryClient = getQueryClient()
