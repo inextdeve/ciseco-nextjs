@@ -101,7 +101,10 @@ const SidebarNavigation: React.FC<SidebarNavigationProps> = ({ data }) => {
 
   return (
     <div>
-      <span>Discover the most outstanding articles on all topics of life. Write your stories and share them</span>
+      <span>
+        Discover handcrafted soaps made with care for every skin type. Treat yourself to natural ingredients, nourishing
+        scents, and everyday luxury.
+      </span>
 
       <div className="mt-4 flex items-center justify-between">
         <SocialsList />
@@ -111,13 +114,8 @@ const SidebarNavigation: React.FC<SidebarNavigationProps> = ({ data }) => {
       <Divider className="mb-6" />
 
       {/* FOR OUR DEMO */}
-      <ButtonPrimary
-        href="https://themeforest.net/item/ciseco-shop-ecommerce-nextjs-template/44210635"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="px-8!"
-      >
-        Buy this template
+      <ButtonPrimary href="/collections/all" target="_blank" rel="noopener noreferrer" className="px-8!">
+        Shop now
       </ButtonPrimary>
     </div>
   )
