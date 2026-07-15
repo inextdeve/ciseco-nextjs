@@ -1,6 +1,14 @@
 import { relations } from 'drizzle-orm'
 import { boolean, index, integer, jsonb, pgTable, text, timestamp, varchar } from 'drizzle-orm/pg-core'
 import { nanoid } from 'nanoid'
+import { pgEnum } from "drizzle-orm/pg-core";
+
+
+export const genderEnum = pgEnum("gender", [
+  "male",
+  "female",
+  "not set",
+]);
 
 export const user = pgTable('user', {
   id: text('id').primaryKey(),
@@ -8,6 +16,11 @@ export const user = pgTable('user', {
   email: text('email').notNull().unique(),
   emailVerified: boolean('email_verified').default(false).notNull(),
   image: text('image'),
+
+  phone: varchar('phone', { length: 20 }),
+  gender: genderEnum("gender").default("not set").notNull(),
+  address: text('address'),
+
   createdAt: timestamp('created_at').defaultNow().notNull(),
   updatedAt: timestamp('updated_at')
     .defaultNow()

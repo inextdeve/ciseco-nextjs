@@ -1,6 +1,8 @@
 'use client'
 
 import { Link } from '@/components/Link'
+import { useTRPC } from '@/trpc/client'
+import { useQuery } from '@tanstack/react-query'
 import { usePathname } from 'next/navigation'
 
 const pages: {
@@ -32,10 +34,17 @@ const pages: {
 const PageTab = () => {
   const pathname = usePathname()
 
+  const trpc = useTRPC()
+  
+  const {data: sessionProvider} = useQuery(trpc.account.getSessionProvider.queryOptions())
+
+  const isOauth = sessionProvider?.provider !== 'credential'
+
   return (
     <div>
       <div className="hidden-scrollbar flex gap-x-8 overflow-x-auto md:gap-x-14">
         {pages.map((item) => {
+          if (item.link === "/account-password" && isOauth) return null
           let isActive = pathname === item.link
           if (item.link === '/orders' && pathname.includes('/orders/')) {
             isActive = true

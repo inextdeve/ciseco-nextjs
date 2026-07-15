@@ -74,6 +74,23 @@ export const SignUpView = () => {
     )
   }
 
+  const onSocial = (provider: "github" | "google") => {
+      setError(null);
+      setPending(true);
+      authClient.signIn.social(
+        { provider, callbackURL: "/" },
+        {
+          onSuccess: () => {
+            setPending(false);
+          },
+          onError: ({ error }) => {
+            setPending(false);
+            setError(error.message);
+          },
+        },
+      );
+    };
+
   return (
     <div>
       <div className="container mb-24 lg:mb-32">
@@ -83,7 +100,7 @@ export const SignUpView = () => {
 
         <div className="mx-auto flex max-w-md flex-col gap-y-6">
           <div className="grid gap-3">
-            <ButtonSecondary className="flex w-full cursor-pointer rounded-lg bg-primary-50 px-4 py-3 sm:px-6 dark:bg-neutral-800">
+            <ButtonSecondary onClick={() => onSocial("google")} className="flex w-full cursor-pointer rounded-lg bg-primary-50 px-4 py-3 sm:px-6 dark:bg-neutral-800">
               <Image sizes="40px" className="size-5 shrink-0 object-cover" src={googleSvg} alt="google auth" />
               <h3 className="grow text-center text-sm font-medium text-neutral-700 sm:text-sm dark:text-neutral-300">
                 Google

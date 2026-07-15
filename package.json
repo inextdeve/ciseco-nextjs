@@ -38,6 +38,7 @@
     "rc-slider": "^11.1.9",
     "react": "^19.2.3",
     "react-dom": "^19.2.3",
+    "react-error-boundary": "^6.1.2",
     "react-hook-form": "^7.79.0",
     "react-hot-toast": "^2.5.2",
     "react-markdown": "^10.1.0",
