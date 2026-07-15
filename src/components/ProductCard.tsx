@@ -7,10 +7,10 @@ import { ArrowsPointingOutIcon, ShoppingBagIcon } from '@heroicons/react/24/outl
 import { StarIcon } from '@heroicons/react/24/solid'
 import { FC } from 'react'
 import AddToCardButton from './AddToCardButton'
-import LikeButton from './LikeButton'
 import Prices from './Prices'
 import ProductStatus from './ProductStatus'
 import { useAside } from './aside'
+import { WishListButton } from '@/modules/wishlists/ui/components/wishlist-button'
 
 interface Props {
   className?: string
@@ -100,7 +100,8 @@ const ProductCard: FC<Props> = ({ className = '', data, isLiked }) => {
             )}
           </Link>
           <ProductStatus status={status} />
-          <LikeButton liked={isLiked} className="absolute end-3 top-3 z-10" />
+          <WishListButton productId={data.id!} className="absolute end-3 top-3 z-10" />
+          {/* <LikeButton liked={isLiked} className="absolute end-3 top-3 z-10" /> */}
           {renderGroupButtons()}
         </div>
 

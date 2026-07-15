@@ -5,20 +5,27 @@ import React, { useEffect, useState } from 'react'
 interface Props {
   className?: string
   liked?: boolean
+  onClick?: () => void
 }
 
-const LikeButton: React.FC<Props> = ({ className = '', liked = false }) => {
+const LikeButton: React.FC<Props> = ({ className = '', liked = false, onClick }) => {
   const [isLiked, setIsLiked] = useState(liked)
 
-  // make random for demo
+  const handleClick = () => {
+    setIsLiked(!isLiked)
+    if (onClick) {
+      onClick()
+    }
+  }
+
   useEffect(() => {
-    setIsLiked(Math.random() > 0.5)
-  }, [])
+    setIsLiked(liked)
+  }, [liked])
 
   return (
     <button
-      className={`flex h-9 w-9 items-center justify-center rounded-full bg-white text-neutral-700 nc-shadow-lg dark:bg-neutral-900 dark:text-neutral-200 ${className}`}
-      onClick={() => setIsLiked(!isLiked)}
+      className={`cursor-pointer flex h-9 w-9 items-center justify-center rounded-full bg-white text-neutral-700 nc-shadow-lg dark:bg-neutral-900 dark:text-neutral-200 ${className}`}
+      onClick={handleClick}
     >
       <svg className="h-5 w-5" viewBox="0 0 24 24" fill="none">
         <path

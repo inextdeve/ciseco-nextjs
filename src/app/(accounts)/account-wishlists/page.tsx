@@ -1,15 +1,16 @@
 import ProductCard from '@/components/ProductCard'
-import { getProducts } from '@/data/data'
-import ButtonPrimary from '@/shared/Button/ButtonPrimary'
+import { getQueryClient, trpc } from '@/trpc/server'
 import { Metadata } from 'next'
 
 export const metadata: Metadata = {
   title: 'Saved Products',
-  description: 'Saved Products page',
+  description: 'Saved Blissdor Products',
 }
 
 const Page = async () => {
-  const products = (await getProducts()).slice(0, 6)
+  const queryClient = getQueryClient();
+  const whishlistProducts = await queryClient.fetchQuery(trpc.wishlist.getMany.queryOptions());
+
 
   return (
     <div className="flex flex-col gap-y-10 sm:gap-y-12">
@@ -21,14 +22,15 @@ const Page = async () => {
       </div>
 
       <div className="grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 md:gap-x-8 lg:grid-cols-3">
-        {products.map((product) => (
+        {whishlistProducts.map((product) => (
           <ProductCard key={product.id} data={product} />
         ))}
       </div>
 
-      <div className="flex items-center justify-center pt-10">
+      {/* Add show me more button when store grows */}
+      {/* <div className="flex items-center justify-center pt-10">
         <ButtonPrimary>Show me more</ButtonPrimary>
-      </div>
+      </div> */}
     </div>
   )
 }
