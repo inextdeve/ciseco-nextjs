@@ -6,12 +6,23 @@ import AsideSidebarCart from '@/modules/cart/ui/components/aside-sidebar-cart'
 import AsideProductQuickView from '@/modules/products/ui/components/aside-product-quickview'
 import React, { FC } from 'react'
 import PageTab from './PageTab'
+import { auth } from '@/lib/auth'
+import { headers } from "next/headers";
+import { redirect } from "next/navigation";
 
 interface Props {
   children?: React.ReactNode
 }
 
-const Layout: FC<Props> = ({ children }) => {
+const Layout: FC<Props> = async ({ children }) => {
+  const session = await auth.api.getSession({
+      headers: await headers(),
+    });
+
+    if (!session) {
+        redirect("/login");
+      }
+
   return (
     <>
       <Header />
@@ -21,8 +32,8 @@ const Layout: FC<Props> = ({ children }) => {
             <div className="max-w-2xl">
               <h2 className="text-3xl font-semibold xl:text-4xl">Account</h2>
               <span className="mt-4 block text-base text-neutral-500 sm:text-lg dark:text-neutral-400">
-                <span className="font-semibold text-neutral-900 dark:text-neutral-200">Enrico Cole,</span>{' '}
-                ciseco@gmail.com · Los Angeles, CA
+                <span className="font-semibold text-neutral-900 dark:text-neutral-200">{session?.user.name},</span>{' '}
+                {session?.user.email}
               </span>
             </div>
 

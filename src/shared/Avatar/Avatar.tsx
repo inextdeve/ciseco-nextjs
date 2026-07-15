@@ -1,13 +1,12 @@
 import VerifyIcon from '@/components/VerifyIcon'
 import avatarImage from '@/images/users/avatar4.jpg'
-import Image, { StaticImageData } from 'next/image'
 import { FC } from 'react'
 
 interface AvatarProps {
   containerClassName?: string
   sizeClass?: string
   radius?: string
-  imgUrl?: string | null | undefined | StaticImageData
+  imgUrl?: string | null | undefined 
   userName?: string
   hasChecked?: boolean
   hasCheckedClass?: string
@@ -25,7 +24,7 @@ const Avatar: FC<AvatarProps> = ({
   const url = imgUrl || ''
   const name = userName || 'John Doe'
   const _setBgColor = (name: string) => {
-    const colors = ['#FF5733', '#33FF57', '#3357FF', '#FF33A1', '#FF8C33']
+    const colors = ['rgb(239, 90, 88)', 'rgb(46, 80, 57)', '#3357FF', '#FF33A1', '#FF8C33']
     const index = name.charCodeAt(0) % colors.length
     return colors[index]
   }
@@ -35,8 +34,8 @@ const Avatar: FC<AvatarProps> = ({
       className={`relative inline-flex shrink-0 items-center justify-center font-semibold text-neutral-100 uppercase shadow-inner ${radius} ${sizeClass} ${containerClassName}`}
       style={{ backgroundColor: url ? undefined : _setBgColor(name) }}
     >
-      {url && <Image fill sizes="100px" className={`absolute inset-0 object-cover ${radius}`} src={url} alt={name} />}
-      <span>{name[0]}</span>
+      {url && <img className={`absolute inset-0 object-cover ${radius} h-full w-full`} src={url} alt={name} />}
+      <span className="select-none">{name.split(" ")[0].charAt(0)}{name.split(" ")[1].charAt(0)}</span>
 
       {hasChecked && (
         <span className={`absolute text-white ${hasCheckedClass}`}>
