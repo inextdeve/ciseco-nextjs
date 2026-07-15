@@ -1,5 +1,5 @@
 import { relations } from 'drizzle-orm'
-import { boolean, index, integer, jsonb, pgTable, text, timestamp, varchar } from 'drizzle-orm/pg-core'
+import { boolean, index, integer, jsonb, pgTable, text, timestamp, varchar,uniqueIndex } from 'drizzle-orm/pg-core'
 import { nanoid } from 'nanoid'
 import { pgEnum } from "drizzle-orm/pg-core";
 
@@ -90,6 +90,8 @@ export const verification = pgTable(
 export const userRelations = relations(user, ({ many }) => ({
   sessions: many(session),
   accounts: many(account),
+  wishlistItems: many(wishlistItems),
+
 }))
 
 export const sessionRelations = relations(session, ({ one }) => ({
@@ -159,3 +161,46 @@ export const cartItemsRelations = relations(cartItems, ({ one }) => ({
     references: [carts.id],
   }),
 }))
+
+// Whishlist Schema
+
+export const wishlistItems = pgTable(
+  "wishlist_items",
+  {
+    id: text("id")
+      .primaryKey()
+      .$defaultFn(() => nanoid()),
+
+    userId: text("user_id")
+      .notNull()
+      .references(() => user.id, {
+        onDelete: "cascade",
+      }),
+
+    productId: varchar("product_id", {
+      length: 255,
+    }).notNull(),
+
+    createdAt: timestamp("created_at", {
+      withTimezone: true,
+    })
+      .defaultNow()
+      .notNull(),
+  },
+  (table) => ({
+    userProductUnique: uniqueIndex("wishlist_user_product_idx").on(
+      table.userId,
+      table.productId
+    ),
+  })
+);
+
+export const wishlistItemsRelations = relations(
+  wishlistItems,
+  ({ one }) => ({
+    user: one(user, {
+      fields: [wishlistItems.userId],
+      references: [user.id],
+    }),
+  })
+);
