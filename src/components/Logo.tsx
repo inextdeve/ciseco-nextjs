@@ -3,11 +3,12 @@ import React from 'react'
 
 export interface LogoProps extends React.ComponentPropsWithoutRef<'svg'> {
   className?: string
+  href?: string
 }
 
 const Logo: React.FC<LogoProps> = ({ className = 'shrink-0', ...props }) => {
   return (
-    <Link href="/" className={`flex ${className}`}>
+    <Link href={props.href ?? "/"} className={`flex ${className}`}>
       <svg
         width="112"
         height="44"

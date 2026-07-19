@@ -1,0 +1,10 @@
+{
+  "Home": {
+    "title": "Welcome",
+    "description": "This is my website."
+  },
+  "Navbar": {
+    "about": "About",
+    "contact": "Contact"
+  }
+}

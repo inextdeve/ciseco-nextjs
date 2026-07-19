@@ -1,14 +1,20 @@
 import { relations } from 'drizzle-orm'
-import { boolean, index, integer, jsonb, pgTable, text, timestamp, varchar,uniqueIndex } from 'drizzle-orm/pg-core'
+import {
+  boolean,
+  index,
+  integer,
+  jsonb,
+  pgEnum,
+  pgTable,
+  serial,
+  text,
+  timestamp,
+  uniqueIndex,
+  varchar,
+} from 'drizzle-orm/pg-core'
 import { nanoid } from 'nanoid'
-import { pgEnum } from "drizzle-orm/pg-core";
 
-
-export const genderEnum = pgEnum("gender", [
-  "male",
-  "female",
-  "not set",
-]);
+export const genderEnum = pgEnum('gender', ['male', 'female', 'not set'])
 
 export const user = pgTable('user', {
   id: text('id').primaryKey(),
@@ -18,7 +24,7 @@ export const user = pgTable('user', {
   image: text('image'),
 
   phone: varchar('phone', { length: 20 }),
-  gender: genderEnum("gender").default("not set").notNull(),
+  gender: genderEnum('gender').default('not set').notNull(),
   address: text('address'),
 
   createdAt: timestamp('created_at').defaultNow().notNull(),
@@ -91,7 +97,6 @@ export const userRelations = relations(user, ({ many }) => ({
   sessions: many(session),
   accounts: many(account),
   wishlistItems: many(wishlistItems),
-
 }))
 
 export const sessionRelations = relations(session, ({ one }) => ({
@@ -165,42 +170,87 @@ export const cartItemsRelations = relations(cartItems, ({ one }) => ({
 // Whishlist Schema
 
 export const wishlistItems = pgTable(
-  "wishlist_items",
+  'wishlist_items',
   {
-    id: text("id")
+    id: text('id')
       .primaryKey()
       .$defaultFn(() => nanoid()),
 
-    userId: text("user_id")
+    userId: text('user_id')
       .notNull()
       .references(() => user.id, {
-        onDelete: "cascade",
+        onDelete: 'cascade',
       }),
 
-    productId: varchar("product_id", {
+    productId: varchar('product_id', {
       length: 255,
     }).notNull(),
 
-    createdAt: timestamp("created_at", {
+    createdAt: timestamp('created_at', {
       withTimezone: true,
     })
       .defaultNow()
       .notNull(),
   },
   (table) => ({
-    userProductUnique: uniqueIndex("wishlist_user_product_idx").on(
-      table.userId,
-      table.productId
-    ),
+    userProductUnique: uniqueIndex('wishlist_user_product_idx').on(table.userId, table.productId),
   })
-);
+)
 
-export const wishlistItemsRelations = relations(
-  wishlistItems,
-  ({ one }) => ({
-    user: one(user, {
-      fields: [wishlistItems.userId],
-      references: [user.id],
+export const wishlistItemsRelations = relations(wishlistItems, ({ one }) => ({
+  user: one(user, {
+    fields: [wishlistItems.userId],
+    references: [user.id],
+  }),
+}))
+
+// Single Product Page Orders Schema
+export const sppOrders = pgTable(
+  'spp_orders',
+  {
+    id: text('id')
+      .primaryKey()
+      .$defaultFn(() => nanoid()),
+    orderNumber: serial('order_number').notNull().unique(),
+    productId: varchar('product_id', {
+      length: 255,
+    }).notNull(),
+
+    fullName: varchar('full_name', {
+      length: 255,
+    }).notNull(),
+
+    address: text('address').notNull(),
+
+    phone: varchar('phone', {
+      length: 20,
+    }).notNull(),
+
+    productName: varchar('product_name', {
+      length: 255,
+    }).notNull(),
+
+    productOption: varchar('product_option', {
+      length: 255,
     }),
+
+    productPrice: integer('product_price').notNull(),
+    createdAt: timestamp('created_at', {
+      withTimezone: true,
+    })
+      .defaultNow()
+      .notNull(),
+
+    updatedAt: timestamp('updated_at', {
+      withTimezone: true,
+    })
+      .defaultNow()
+      .$onUpdate(() => new Date())
+      .notNull(),
+  },
+  (table) => ({
+    productIdIndex: index('spp_orders_product_id_idx').on(table.productId),
+    phoneIndex: index('spp_orders_phone_idx').on(table.phone),
+    createdAtIndex: index('spp_orders_created_at_idx').on(table.createdAt),
   })
-);
+)

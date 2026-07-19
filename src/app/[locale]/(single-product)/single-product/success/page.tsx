@@ -1,0 +1,43 @@
+import SPPSucessView from '@/modules/single-product/ui/views/spp-success-view'
+import { getQueryClient, trpc } from '@/trpc/server'
+import { getTranslations } from 'next-intl/server'
+import { redirect } from 'next/navigation'
+
+type PageProps = {
+  searchParams: Promise<{ order_id?: string }>
+}
+
+const Page = async ({ searchParams }: PageProps) => {
+  const t = await getTranslations('Home')
+  const orderId = (await searchParams).order_id
+
+  if (!orderId) {
+    redirect('/')
+  }
+
+  const queryClient = getQueryClient()
+
+  const order = await queryClient.fetchQuery(trpc.sppOrders.get.queryOptions({ id: orderId }))
+
+  if (!order) {
+    redirect('/404')
+  }
+
+  return (
+    <SPPSucessView
+      orderId={orderId}
+      items={[{ name: order?.productName, sku: '23', quantity: 2, price: order.productPrice }]}
+      customer={{
+        name: order.fullName,
+        phone: order.phone,
+        address: order.address,
+        city: t('description'),
+        paymentMethod: 'Cash On Delivery',
+      }}
+      total={order.productPrice}
+      whatsappUrl="https://we.was.com"
+    />
+  )
+}
+
+export default Page
