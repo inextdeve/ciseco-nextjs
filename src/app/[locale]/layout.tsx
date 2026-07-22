@@ -1,7 +1,6 @@
 import Aside from '@/components/aside'
 import '@/styles/tailwind.css'
 import { TRPCReactProvider } from '@/trpc/client'
-import clsx from 'clsx'
 import { Metadata } from 'next'
 import { NextIntlClientProvider } from 'next-intl'
 import { getMessages } from 'next-intl/server'
@@ -63,9 +62,11 @@ export default async function RootLayout({ children, params }: Props) {
 
   const messages = await getMessages()
 
+  const fontClass = locale === 'ar' ? tajawal.className : poppins.className
+
   return (
     <TRPCReactProvider>
-      <html lang={locale} dir={locale === 'ar' ? 'rtl' : 'ltr'} className={clsx(poppins.className, tajawal.className)}>
+      <html lang={locale} dir={locale === 'ar' ? 'rtl' : 'ltr'} className={fontClass}>
         <body className="bg-white text-neutral-900 dark:bg-neutral-900 dark:text-neutral-200">
           <NextIntlClientProvider messages={messages}>
             <Aside.Provider>
