@@ -7,6 +7,7 @@ import { Squares2X2Icon } from '@heroicons/react/24/outline'
 import clsx from 'clsx'
 import { EmblaOptionsType } from 'embla-carousel'
 import useEmblaCarousel from 'embla-carousel-react'
+import { useTranslations } from 'next-intl'
 import Image from 'next/image'
 import { useCallback, useEffect, useState } from 'react'
 
@@ -127,6 +128,7 @@ const GalleryImages = ({ images, gridType = 'grid1', className }: Props) => {
         {/* Full-screen container to center the panel */}
         <div className="fixed inset-0 flex w-screen items-center justify-center">
           <DialogPanel
+            dir="ltr"
             transition
             className="relative mx-auto aspect-[3/2] max-h-full w-full max-w-7xl flex-1 transition data-closed:opacity-0"
           >
@@ -145,6 +147,7 @@ const HeaderGalleryGrid1 = ({
   images: string[]
   handleOpenDialog: (index?: number) => void
 }) => {
+  const t = useTranslations('Global')
   if (!images.length) return null
 
   return (
@@ -175,7 +178,7 @@ const HeaderGalleryGrid1 = ({
       <div className="absolute bottom-3 left-3">
         <Button size="smaller" color="light" onClick={() => handleOpenDialog()} className="[--btn-border:white]/0">
           <Squares2X2Icon className="h-5 w-5" />
-          <span className="text-sm/6 font-normal">Show all photos</span>
+          <span className="text-sm/6 font-normal">{t('showAllPhotos')}</span>
         </Button>
       </div>
     </header>
@@ -188,6 +191,8 @@ const HeaderGalleryGrid2 = ({
   images: string[]
   handleOpenDialog: (index?: number) => void
 }) => {
+  const t = useTranslations('Global')
+
   if (!images.length) return null
 
   return (
@@ -219,7 +224,7 @@ const HeaderGalleryGrid2 = ({
       <div className="absolute bottom-3 left-3">
         <Button color="light" onClick={() => handleOpenDialog()} className="[--btn-border:white]/0">
           <Squares2X2Icon className="h-5 w-5" />
-          <span className="text-sm/6 font-normal">Show all photos</span>
+          <span className="text-sm/6 font-normal">{t('showAllPhotos')}</span>
         </Button>
       </div>
     </header>
@@ -232,6 +237,8 @@ const HeaderGalleryGrid3 = ({
   images: string[]
   handleOpenDialog: (index?: number) => void
 }) => {
+  const t = useTranslations('Global')
+
   if (!images.length) return null
 
   return (
@@ -286,7 +293,7 @@ const HeaderGalleryGrid3 = ({
       <div className="absolute bottom-3 left-3">
         <Button color="light" onClick={() => handleOpenDialog()} className="[--btn-border:white]/0">
           <Squares2X2Icon className="h-5 w-5" />
-          <span className="text-sm/6 font-normal">Show all photos</span>
+          <span className="text-sm/6 font-normal">{t('showAllPhotos')}</span>
         </Button>
       </div>
     </header>
@@ -299,6 +306,8 @@ const HeaderGalleryGrid4 = ({
   images: string[]
   handleOpenDialog: (index?: number) => void
 }) => {
+  const t = useTranslations('Global')
+
   if (!images.length) return null
 
   return (
@@ -353,7 +362,7 @@ const HeaderGalleryGrid4 = ({
       <div className="absolute bottom-3 left-3">
         <Button color="light" onClick={() => handleOpenDialog()} className="[--btn-border:white]/0">
           <Squares2X2Icon className="h-5 w-5" />
-          <span className="text-sm/6 font-normal">Show all photos</span>
+          <span className="text-sm/6 font-normal">{t('showAllPhotos')}</span>
         </Button>
       </div>
     </header>

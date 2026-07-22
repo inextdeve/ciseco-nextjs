@@ -1,0 +1,145 @@
+{
+  "Global": {
+    "showAllPhotos": "Show all photos",
+    "currency": "DH"
+  },
+  "SuccessOrder": {
+    "title": "Thank you for your order!",
+    "subtitle": "We received your order and will contact you soon to confirm delivery.",
+    "orderSummary": {
+      "title": "Your Order",
+      "orderNumber": "Order number:",
+      "delivery": "Delivery",
+      "freeDelivery": "Free",
+      "total": "Total"
+    },
+    "deliveryInformation": "Delivery Information",
+    "payment": {
+      "method": "Cash On Delivery",
+      "description": "No online payment — pay on delivery"
+    },
+    "nextSteps": {
+      "title": "What happens next?",
+      "description": "Our team will call you shortly to confirm your order. Please stay available.",
+      "steps": {
+        "orderReceived": "Order received",
+        "confirmationCall": "Confirmation call",
+        "shipping": "Shipping",
+        "delivered": "Delivered"
+      }
+    },
+    "support": {
+      "title": "Need help?",
+      "description": "Our team is here to help. Contact us for any questions about your order.",
+      "whatsapp": "Contact us on WhatsApp"
+    },
+    "continueShopping": "Continue Shopping",
+    "footer": "Thank you for choosing Blissdor ❤️"
+  },
+  "SinglePageProduct": {
+    "currency": "DH",
+    "orderNow": "Order Now",
+    "offer": "Order now and get 50% off !",
+    "announcement": {
+      "discount": "🎉 Discount up to 50%",
+      "delivery": "🚚 Free Delivery"
+    },
+    "features": {
+      "chemicalFree": {
+        "title": "Chemical-Free Formula",
+        "description": "Made without harsh chemicals, offering a gentle and safe cleansing experience for your skin."
+      },
+      "plantBased": {
+        "title": "Plant-Based Ingredients",
+        "description": "Made with naturally derived botanical ingredients that are gentle on your skin and the environment."
+      },
+      "handcrafted": {
+        "title": "Handcrafted with Care",
+        "description": "Carefully handmade in small batches to ensure quality, freshness, and attention to detail."
+      },
+      "preservativeFree": {
+        "title": "Preservative-Free",
+        "description": "Free from artificial preservatives, ensuring a clean and simple formula you can trust."
+      }
+    },
+    "reviews": "Reviews",
+    "before": "Before",
+    "orderForm": {
+      "fullName": {
+        "label": "Full name",
+        "placeholder": "Enter your full name"
+      },
+      "address": {
+        "label": "Address",
+        "placeholder": "Enter your address"
+      },
+      "phone": {
+        "label": "Phone number",
+        "placeholder": "Enter your phone number"
+      },
+      "deliveryOffer": "Cash on delivery — pay when your order arrives",
+      "orderStatus": {
+        "title": "Order Confirmation",
+        "placingOrder": "Placing your order…"
+      },
+      "pricing": {
+        "discount": "Discount",
+        "save": "Save",
+        "pack": "Pack",
+        "mostOrdered": "Most Ordered",
+        "mostPopular": "Most Popular",
+        "currency": "DH"
+      }
+    }
+  },
+  "successPage": {
+    "hero": {
+      "title": "Thank you for your order!",
+      "description": "We've received your order and will contact you shortly to confirm your delivery.",
+      "orderNumber": "Order Number"
+    },
+    "order": {
+      "title": "Your Order",
+      "subtotal": "Subtotal",
+      "delivery": "Delivery",
+      "freeDelivery": "Free",
+      "total": "Total",
+      "sku": "SKU",
+      "quantity": "Qty",
+      "currency": "DH"
+    },
+    "shipping": {
+      "title": "Delivery Information",
+      "customer": "Customer",
+      "phone": "Phone",
+      "address": "Address",
+      "city": "City",
+      "paymentMethod": "Payment Method",
+      "cashOnDelivery": "Cash on Delivery",
+      "cashOnDeliveryDescription": "Pay when your order arrives.",
+      "country": "Morocco"
+    },
+    "timeline": {
+      "title": "What happens next?",
+      "steps": {
+        "received": "Order Received",
+        "confirmation": "Confirmation Call",
+        "shipping": "Shipping",
+        "delivered": "Delivered"
+      },
+      "message": "Our team will contact you within the next few hours using the phone number you provided to confirm your order. Please keep your phone available."
+    },
+    "support": {
+      "title": "Need Help?",
+      "description": "Our support team is here to help. Feel free to contact us if you have any questions about your order.",
+      "whatsapp": "Contact us on WhatsApp"
+    },
+    "actions": {
+      "continueShopping": "Continue Shopping"
+    },
+    "footer": {
+      "thankYou": "Thank you for choosing",
+      "madeWith": "We appreciate your trust ❤️"
+    }
+  }
+}

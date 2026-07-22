@@ -10,9 +10,12 @@ import charcoalSoap_nobg from '@/images/products/charcoal_soap_nobg.png'
 import nilaSoap from '@/images/products/nila_soap.png'
 import roseSoap from '@/images/products/rose_soap.png'
 
-import sidrSoap1 from '@/images/products/sidr_soap_1.webp'
-import sidrSoap2 from '@/images/products/sidr_soap_2.webp'
-import sidrSoap3 from '@/images/products/sidr_soap_3.webp'
+import sidrSoap1 from '@/images/products/sidr-soap-v2/1.jpg'
+import sidrSoap2 from '@/images/products/sidr-soap-v2/2.jpg'
+import sidrSoap3 from '@/images/products/sidr-soap-v2/3.jpg'
+import sidrSoap4 from '@/images/products/sidr-soap-v2/4.jpg'
+import sidrSoap5 from '@/images/products/sidr-soap-v2/5.png'
+import sidrSoap6 from '@/images/products/sidr-soap-v2/6.jpg'
 
 import roseSoap1 from '@/images/products/rose_soap_1.webp'
 import roseSoap2 from '@/images/products/rose_soap_2.webp'
@@ -31,10 +34,15 @@ import nigellaSoap4 from '@/images/products/nigella_soap_4.webp'
 import productImage2 from '@/images/products/p2.jpg'
 import productImage3 from '@/images/products/p3.jpg'
 import productImage4 from '@/images/products/p4.jpg'
+
 import avatarImage1 from '@/images/users/avatar1.jpg'
 import avatarImage2 from '@/images/users/avatar2.jpg'
 import avatarImage3 from '@/images/users/avatar3.jpg'
 import avatarImage4 from '@/images/users/avatar4.jpg'
+
+import avatarBaby from '@/images/users/avatar-baby.jpeg'
+import avatarPlaceholderFemale2 from '@/images/users/avatar-placeholder-female-2.png'
+import avatarPlaceholderFemale from '@/images/users/avatar-placeholder-female.png'
 import { shuffleArray } from '@/utils/shuffleArray'
 
 export async function getOrder(number: string) {
@@ -345,55 +353,43 @@ export async function getProductReviews(handle: string) {
   return [
     {
       id: '1',
-      title: "Can't say enough good things",
+      title: 'صابونة ولات عندي ادمان الا مشميتش ريحتها منعسش',
       rating: 5,
-      content: `
-        <p>I was really pleased with the overall shopping experience. My order even included a little personal, handwritten note, which delighted me!</p>
-        <p>The product quality is amazing, it looks and feel even better than I had anticipated. </p>
-      `,
-      author: 'S. Walkinshaw',
-      authorAvatar: avatarImage1,
-      date: 'May 16, 2025',
-      datetime: '2025-01-06',
+      content: 'صابونة ولات عندي ادمان الا مشميتش ريحتها منعسش',
+      author: ' Hasnae',
+      authorAvatar: avatarPlaceholderFemale,
+      date: 'March 12, 2026',
+      datetime: '2026-03-12',
     },
     {
       id: '2',
-      title: 'Perfect for going out when you want to stay comfy',
-      rating: 4,
-      content: `
-        <p>The product quality is amazing, it looks and feel even better than I had anticipated.</p>
-        <p>I like it better than a regular hoody because it is tailored to be a slimmer fit. Perfect for going out when you want to stay comfy. The head opening is a little tight which makes it a little.</p>
-      `,
-      author: 'Risako M',
-      authorAvatar: avatarImage2,
-      date: 'May 16, 2025',
-      datetime: '2025-01-06',
+      title: 'wslatni commande dakxi zwin bzaf',
+      rating: 5,
+      content: 'wslatni commande dakxi zwin bzaf kif kont mtwa93a riha zwina bzaf.',
+      author: ' Touriya',
+      authorAvatar: avatarBaby,
+      date: 'June 25, 2026',
+      datetime: '2026-06-25',
     },
     {
       id: '3',
-      title: 'Very nice feeling sweater!',
-      rating: 4,
-      content: `
-        <p> I would gladly recommend this store to my friends. And, now that I think of it... I actually have, many times.</p>
-        <p>The product quality is amazing!</p>
-      `,
-      author: 'Eden Birch',
-      authorAvatar: avatarImage3,
-      date: 'May 16, 2025',
-      datetime: '2025-01-06',
+      title: "C'est le meilleure savon",
+      rating: 5,
+      content: "C'est le meilleure savon que j'ai utilise avec son effet hydraton et sa saveur naturel magnifique ",
+      author: ' Wijdane',
+      authorAvatar: avatarPlaceholderFemale2,
+      date: 'Feb 05, 2026',
+      datetime: '2026-02-05',
     },
     {
       id: '4',
-      title: 'Very nice feeling sweater!',
+      title: 'Sbon nadi bzff',
       rating: 5,
-      content: `
-        <p> I would gladly recommend this store to my friends. And, now that I think of it... I actually have, many times.</p>
-        <p>The product quality is amazing!</p>
-      `,
-      author: 'Jonathan Edwards',
-      authorAvatar: avatarImage4,
-      date: 'May 16, 2025',
-      datetime: '2025-01-06',
+      content: 'صابونة زوينا بزاف طبيعية كنغسل بها حتى شعري',
+      author: ' Yassine',
+      authorAvatar: avatarImage3,
+      date: 'Jul 16, 2026',
+      datetime: '2026-07-16',
     },
   ]
 }
@@ -880,6 +876,103 @@ export async function getCollectionByHandle(handle: string) {
   return collection
 }
 
+export async function getSinglePageProducts() {
+  return [
+    {
+      id: 'gid://1002',
+      title: 'صابون السدر الطبيعي',
+      subtitle: '🌿 صابون السدر الطبيعي... بداية بشرة أكثر صفاءً وتوازنًا.',
+      handle: 'sidr-soap',
+      createdAt: '2025-05-07T09:30:00-04:00',
+      price: 30,
+      featuredImage: [
+        {
+          src: sidrSoap1.src,
+          width: sidrSoap1.width,
+          height: sidrSoap1.height,
+          alt: 'Handmade Sidr Soap – Natural Care for Sensitive Skin',
+        },
+        {
+          src: sidrSoap5.src,
+          width: sidrSoap5.width,
+          height: sidrSoap5.height,
+          alt: 'Handmade Sidr Soap – Natural Care for Sensitive Skin',
+        },
+      ],
+      images: [
+        {
+          src: sidrSoap1.src,
+          width: sidrSoap1.width,
+          height: sidrSoap1.height,
+          alt: 'Handmade Sidr Soap – Natural Care for Sensitive Skin',
+        },
+        {
+          src: sidrSoap2.src,
+          width: sidrSoap2.width,
+          height: sidrSoap2.height,
+          alt: 'Handmade Sidr Soap – Natural Care for Sensitive Skin',
+        },
+        {
+          src: sidrSoap3.src,
+          width: sidrSoap3.width,
+          height: sidrSoap3.height,
+          alt: 'Handmade Sidr Soap – Natural Care for Sensitive Skin',
+        },
+        {
+          src: sidrSoap4.src,
+          width: sidrSoap4.width,
+          height: sidrSoap4.height,
+          alt: 'Handmade Sidr Soap – Natural Care for Sensitive Skin',
+        },
+        {
+          src: sidrSoap5.src,
+          width: sidrSoap5.width,
+          height: sidrSoap5.height,
+          alt: 'Handmade Sidr Soap – Natural Care for Sensitive Skin',
+        },
+        {
+          src: sidrSoap6.src,
+          width: sidrSoap6.width,
+          height: sidrSoap6.height,
+          alt: 'Handmade Sidr Soap – Natural Care for Sensitive Skin',
+        },
+      ],
+      description: `Give your skin a moment of softness with our handmade Sidr soap, crafted by hand using nourishing vegetable oils and natural ingredients. Inspired by traditional natural skincare practices, this soap gently cleanses the skin while respecting its natural balance.`,
+      material: ['Olive oil', 'Shea butter', 'Castor oil', 'Coconut oil', 'Lavender oil', 'Sidr leaves'],
+      details: `# Handmade Sidr Soap – Natural Care for Sensitive Skin
+
+      Give your skin a moment of softness with our handmade Sidr soap, crafted by hand using nourishing vegetable oils and natural ingredients. Inspired by traditional natural skincare practices, this soap gently cleanses the skin while respecting its natural balance.
+
+      Sidr leaves (jujube leaves) are known for their purifying and soothing properties. Combined with rich vegetable oils, they help leave the skin clean, soft, and comfortable after each use.
+
+      ## Benefits
+
+      - Gently cleanses the skin
+      - Helps soothe sensitive skin
+      - Nourishes and softens the skin
+      - Suitable for face and body
+      - Ideal for a natural skincare routine
+
+      ## Natural Ingredients
+
+      Our soap is made with a selection of simple and nourishing ingredients:
+
+      - Olive oil – nourishes and protects the skin
+      - Shea butter – hydrates and softens
+      - Castor oil – provides a creamy lather
+      - Coconut oil – cleanses and purifies
+      - Lavender oil – adds a naturally fragrant and soothing touch
+      - Sidr leaves (jujube) – known for their purifying properties
+
+      ## Handmade Craftsmanship
+
+      Each soap is handmade in small batches, ensuring a unique and authentic product. The shape and color may vary slightly, which is a sign of a truly artisanal product.`,
+      reviewNumber: 3,
+      rating: 5,
+    },
+  ]
+}
+
 export async function getProducts() {
   return [
     {
@@ -991,7 +1084,7 @@ Please ask if you have any questions about my soap.
       handle: 'sidr-soap',
       createdAt: '2025-05-07T09:30:00-04:00',
       vendor: 'ChicElegance',
-      price: 25,
+      price: 45,
       featuredImage: {
         src: sidrSoap1.src,
         width: sidrSoap1.width,
@@ -1426,6 +1519,23 @@ export async function getProductByHandle(handle: string) {
   handle = handle.toLowerCase()
 
   const products = await getProducts()
+  let product = products.find((product) => product.handle === handle)
+
+  if (!product) {
+    // throw new Error(`Product with handle "${handle}" not found.`)
+
+    // for demo purposes, we are using a static product detail
+    product = products[0] // fallback to the first product
+  }
+
+  return product
+}
+
+export async function getSPProductByHandle(handle: string) {
+  // lowercase handle
+  handle = handle.toLowerCase()
+
+  const products = await getSinglePageProducts()
   let product = products.find((product) => product.handle === handle)
 
   if (!product) {

@@ -2,13 +2,26 @@ import Aside from '@/components/aside'
 import '@/styles/tailwind.css'
 import { TRPCReactProvider } from '@/trpc/client'
 import { Metadata } from 'next'
-import { Poppins } from 'next/font/google'
-import GlobalClient from './GlobalClient'
+import { NextIntlClientProvider } from 'next-intl'
+import { getMessages } from 'next-intl/server'
+import { Poppins, Tajawal } from 'next/font/google'
+import GlobalClient from '../GlobalClient'
+
+type Props = {
+  children: React.ReactNode
+  params: Promise<{ locale: string }>
+}
 
 const poppins = Poppins({
   subsets: ['latin'],
   display: 'swap',
   weight: ['300', '400', '500', '600', '700'],
+})
+
+const tajawal = Tajawal({
+  subsets: ['arabic'],
+  weight: ['200', '300', '400', '500', '700', '800', '900'],
+  variable: '--font-ar',
 })
 
 export const metadata: Metadata = {
@@ -44,17 +57,25 @@ export const metadata: Metadata = {
   ],
 }
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default async function RootLayout({ children, params }: Props) {
+  const { locale } = await params
+
+  const messages = await getMessages()
+
+  const fontClass = locale === 'ar' ? tajawal.className : poppins.className
+
   return (
     <TRPCReactProvider>
-      <html lang="en" className={poppins.className}>
+      <html lang={locale} dir={locale === 'ar' ? 'rtl' : 'ltr'} className={fontClass}>
         <body className="bg-white text-neutral-900 dark:bg-neutral-900 dark:text-neutral-200">
-          <Aside.Provider>
-            {children}
+          <NextIntlClientProvider messages={messages}>
+            <Aside.Provider>
+              {children}
 
-            {/* Client component: Toaster, ... */}
-            <GlobalClient />
-          </Aside.Provider>
+              {/* Client component: Toaster, ... */}
+              <GlobalClient />
+            </Aside.Provider>
+          </NextIntlClientProvider>
         </body>
       </html>
     </TRPCReactProvider>
