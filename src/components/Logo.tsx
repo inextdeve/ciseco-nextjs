@@ -1,4 +1,6 @@
 import { Link } from '@/components/Link'
+import logoGreen from '@/images/logo-green.png'
+import Image from 'next/image'
 import React from 'react'
 
 export interface LogoProps extends React.ComponentPropsWithoutRef<'svg'> {
@@ -9,31 +11,7 @@ export interface LogoProps extends React.ComponentPropsWithoutRef<'svg'> {
 const Logo: React.FC<LogoProps> = ({ className = 'shrink-0', ...props }) => {
   return (
     <Link href={props.href ?? '/'} className={`flex ${className}`} dir="ltr">
-      <svg
-        width="112"
-        height="44"
-        viewBox="0 0 970.76 381.42"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-        aria-label="Blissdor"
-        {...props}
-      >
-        <g>
-          <path
-            fill="#EF5A58"
-            d="M379.66,2.35h0c0-1.08.91-1.94,1.99-1.88,12.27.65,25.08-1.8,38.11.64,42.76,7.98,71.94,27.68,73.51,74l.68,20.12c.78,23.06,11.43,44.78,29.49,59.15,4.24,3.37,8.7,6.73,13.26,10.24-27.95-.48-50.32-18.08-63.91-41.11-19.53-33.11-11.84-54.23-37.47-77.78,18.14,44.52,5.95,58.63,37.62,96.98-48.64-8.52-77.75-40.66-79.52-87.37-.72-18.86-4.15-36.89-13.47-52-.18-.3-.28-.64-.28-.98Z"
-          />
-          <path
-            fill="#EF5A58"
-            d="M548.22,74.44c-14.08,10.74-23.21,24.94-42.12,33.67-11.54-77.64,47.7-55.66,74.12-93.1,8.48,18.54,12.55,38.97,6.29,58.7-10.28,32.37-39.28,41.05-70.4,34.12,13.26-10.19,27.88-16,32.11-33.39Z"
-          />
-        </g>
-
-        {/* Convert the text to outlines if you need exact font rendering */}
-        <text x="0" y="312.07" fill="#2E5039" fontSize="305.47" fontFamily="Rossanova Trial, serif">
-          blissdor
-        </text>
-      </svg>
+      <Image src={logoGreen.src} width={112} height={44} alt="logo" />
     </Link>
   )
 }
