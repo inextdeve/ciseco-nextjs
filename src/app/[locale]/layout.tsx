@@ -1,10 +1,11 @@
 import Aside from '@/components/aside'
 import '@/styles/tailwind.css'
 import { TRPCReactProvider } from '@/trpc/client'
+import clsx from 'clsx'
 import { Metadata } from 'next'
 import { NextIntlClientProvider } from 'next-intl'
 import { getMessages } from 'next-intl/server'
-import { Poppins } from 'next/font/google'
+import { Poppins, Tajawal } from 'next/font/google'
 import GlobalClient from '../GlobalClient'
 
 type Props = {
@@ -16,6 +17,12 @@ const poppins = Poppins({
   subsets: ['latin'],
   display: 'swap',
   weight: ['300', '400', '500', '600', '700'],
+})
+
+const tajawal = Tajawal({
+  subsets: ['arabic'],
+  weight: ['200', '300', '400', '500', '700', '800', '900'],
+  variable: '--font-ar',
 })
 
 export const metadata: Metadata = {
@@ -58,7 +65,7 @@ export default async function RootLayout({ children, params }: Props) {
 
   return (
     <TRPCReactProvider>
-      <html lang={locale} dir={locale === 'ar' ? 'rtl' : 'ltr'} className={poppins.className}>
+      <html lang={locale} dir={locale === 'ar' ? 'rtl' : 'ltr'} className={clsx(poppins.className, tajawal.className)}>
         <body className="bg-white text-neutral-900 dark:bg-neutral-900 dark:text-neutral-200">
           <NextIntlClientProvider messages={messages}>
             <Aside.Provider>

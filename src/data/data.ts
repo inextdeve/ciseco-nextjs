@@ -10,9 +10,12 @@ import charcoalSoap_nobg from '@/images/products/charcoal_soap_nobg.png'
 import nilaSoap from '@/images/products/nila_soap.png'
 import roseSoap from '@/images/products/rose_soap.png'
 
-import sidrSoap1 from '@/images/products/sidr_soap_1.webp'
-import sidrSoap2 from '@/images/products/sidr_soap_2.webp'
-import sidrSoap3 from '@/images/products/sidr_soap_3.webp'
+import sidrSoap1 from '@/images/products/sidr-soap-v2/1.jpg'
+import sidrSoap2 from '@/images/products/sidr-soap-v2/2.jpg'
+import sidrSoap3 from '@/images/products/sidr-soap-v2/3.jpg'
+import sidrSoap4 from '@/images/products/sidr-soap-v2/4.jpg'
+import sidrSoap5 from '@/images/products/sidr-soap-v2/5.png'
+import sidrSoap6 from '@/images/products/sidr-soap-v2/6.jpg'
 
 import roseSoap1 from '@/images/products/rose_soap_1.webp'
 import roseSoap2 from '@/images/products/rose_soap_2.webp'
@@ -877,16 +880,25 @@ export async function getSinglePageProducts() {
   return [
     {
       id: 'gid://1002',
-      title: 'صابون السدر الطبيعي - أحسن حل لجميع مشاكل البشرة',
+      title: 'صابون السدر الطبيعي',
+      subtitle: '🌿 صابون السدر الطبيعي... بداية بشرة أكثر صفاءً وتوازنًا.',
       handle: 'sidr-soap',
       createdAt: '2025-05-07T09:30:00-04:00',
       price: 30,
-      featuredImage: {
-        src: sidrSoap1.src,
-        width: sidrSoap1.width,
-        height: sidrSoap1.height,
-        alt: 'Handmade Sidr Soap – Natural Care for Sensitive Skin',
-      },
+      featuredImage: [
+        {
+          src: sidrSoap1.src,
+          width: sidrSoap1.width,
+          height: sidrSoap1.height,
+          alt: 'Handmade Sidr Soap – Natural Care for Sensitive Skin',
+        },
+        {
+          src: sidrSoap5.src,
+          width: sidrSoap5.width,
+          height: sidrSoap5.height,
+          alt: 'Handmade Sidr Soap – Natural Care for Sensitive Skin',
+        },
+      ],
       images: [
         {
           src: sidrSoap1.src,
@@ -904,6 +916,24 @@ export async function getSinglePageProducts() {
           src: sidrSoap3.src,
           width: sidrSoap3.width,
           height: sidrSoap3.height,
+          alt: 'Handmade Sidr Soap – Natural Care for Sensitive Skin',
+        },
+        {
+          src: sidrSoap4.src,
+          width: sidrSoap4.width,
+          height: sidrSoap4.height,
+          alt: 'Handmade Sidr Soap – Natural Care for Sensitive Skin',
+        },
+        {
+          src: sidrSoap5.src,
+          width: sidrSoap5.width,
+          height: sidrSoap5.height,
+          alt: 'Handmade Sidr Soap – Natural Care for Sensitive Skin',
+        },
+        {
+          src: sidrSoap6.src,
+          width: sidrSoap6.width,
+          height: sidrSoap6.height,
           alt: 'Handmade Sidr Soap – Natural Care for Sensitive Skin',
         },
       ],
@@ -1054,7 +1084,7 @@ Please ask if you have any questions about my soap.
       handle: 'sidr-soap',
       createdAt: '2025-05-07T09:30:00-04:00',
       vendor: 'ChicElegance',
-      price: 25,
+      price: 45,
       featuredImage: {
         src: sidrSoap1.src,
         width: sidrSoap1.width,

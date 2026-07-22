@@ -1,0 +1,150 @@
+{
+  "Global": {
+    "showAllPhotos": "عرض جميع الصور",
+    "currency": "د.م."
+  },
+  "SuccessOrder": {
+    "title": "شكرًا لطلبك!",
+    "subtitle": "لقد تلقينا طلبك وسنتواصل معك قريبًا لتأكيد التوصيل.",
+    "orderSummary": {
+      "title": "طلبك",
+      "orderNumber": "رقم الطلب:",
+      "delivery": "التوصيل",
+      "freeDelivery": "مجاني",
+      "total": "المجموع"
+    },
+    "deliveryInformation": "معلومات التوصيل",
+    "payment": {
+      "method": "الدفع عند الاستلام",
+      "description": "لا حاجة للدفع الإلكتروني — الدفع عند الاستلام"
+    },
+    "nextSteps": {
+      "title": "ما هي الخطوات التالية؟",
+      "description": "سيتصل بك فريقنا قريبًا لتأكيد طلبك. يُرجى البقاء متاحًا.",
+      "steps": {
+        "orderReceived": "تم استلام الطلب",
+        "confirmationCall": "مكالمة التأكيد",
+        "shipping": "الشحن",
+        "delivered": "تم التوصيل"
+      }
+    },
+    "support": {
+      "title": "هل تحتاج إلى مساعدة؟",
+      "description": "فريقنا هنا لمساعدتك. تواصل معنا لأي استفسار بخصوص طلبك.",
+      "whatsapp": "تواصل معنا عبر واتساب"
+    },
+    "continueShopping": "متابعة التسوق",
+    "footer": "شكرًا لاختيارك Blissdor ❤️"
+  },
+  "SinglePageProduct": {
+    "currency": "د.م.",
+    "orderNow": "اطلب الآن",
+    "offer": "اطلب الآن واحصل على خصم 50%!",
+    "announcement": {
+      "discount": "🎉 تخفيض يصل حتى %50",
+      "delivery": "🚚 توصيل مجاني"
+    },
+
+    "features": {
+      "chemicalFree": {
+        "title": "تركيبة خالية من المواد الكيميائية",
+        "description": "مصنوعة بدون مواد كيميائية قاسية، لتمنح بشرتك تجربة تنظيف لطيفة وآمنة."
+      },
+      "plantBased": {
+        "title": "مكونات نباتية",
+        "description": "تحتوي على مكونات نباتية مشتقة طبيعيًا، لطيفة على بشرتك وعلى البيئة."
+      },
+      "handcrafted": {
+        "title": "مصنوعة يدويًا بعناية",
+        "description": "تُصنع يدويًا بكميات صغيرة لضمان الجودة والنضارة والاهتمام بالتفاصيل."
+      },
+      "preservativeFree": {
+        "title": "خالية من المواد الحافظة",
+        "description": "خالية من المواد الحافظة الاصطناعية، بتركيبة نظيفة وبسيطة يمكنك الوثوق بها."
+      }
+    },
+    "reviews": "التقييمات",
+    "before": "قبل",
+    "orderForm": {
+      "fullName": {
+        "label": "الاسم الكامل",
+        "placeholder": "أدخل اسمك الكامل"
+      },
+      "address": {
+        "label": "العنوان",
+        "placeholder": "أدخل عنوانك"
+      },
+      "phone": {
+        "label": "رقم الهاتف",
+        "placeholder": "أدخل رقم هاتفك"
+      },
+      "deliveryOffer": "الدفع عند الاستلام — ادفع عند وصول طلبك",
+      "orderStatus": {
+        "title": "تأكيد الطلب",
+        "placingOrder": "جارٍ إرسال طلبك…"
+      },
+      "pricing": {
+        "discount": "خصم",
+        "save": "وفّر",
+        "pack": "باقة",
+        "mostOrdered": "الأكثر طلبًا",
+        "mostPopular": "الأكثر رواجًا",
+        "currency": "د.م."
+      }
+    },
+    "orderStatus": {
+      "title": "تأكيد الطلب",
+      "placingOrder": "جارٍ إرسال طلبك…"
+    }
+  },
+  "successPage": {
+    "hero": {
+      "title": "شكراً لطلبك!",
+      "description": "لقد استلمنا طلبك وسنتواصل معك قريباً لتأكيد عملية التوصيل.",
+      "orderNumber": "رقم الطلب"
+    },
+    "order": {
+      "title": "طلبك",
+      "subtotal": "المجموع الفرعي",
+      "delivery": "التوصيل",
+      "freeDelivery": "مجاني",
+      "total": "المجموع",
+      "sku": "رمز المنتج",
+      "quantity": "الكمية",
+      "currency": "د.م."
+    },
+    "shipping": {
+      "title": "معلومات التوصيل",
+      "customer": "العميل",
+      "phone": "رقم الهاتف",
+      "address": "العنوان",
+      "city": "المدينة",
+      "paymentMethod": "طريقة الدفع",
+      "cashOnDelivery": "الدفع عند الاستلام",
+      "cashOnDeliveryDescription": "يتم الدفع عند استلام الطلب",
+      "country": "المغرب"
+    },
+    "timeline": {
+      "title": "ماذا يحدث بعد ذلك؟",
+      "steps": {
+        "received": "تم استلام الطلب",
+        "confirmation": "مكالمة التأكيد",
+        "shipping": "الشحن",
+        "delivered": "تم التوصيل"
+      },
+      "message": "سيتواصل معك فريقنا خلال الساعات القادمة عبر رقم الهاتف الذي قدمته لتأكيد طلبك. يرجى إبقاء هاتفك متاحاً."
+    },
+    "support": {
+      "title": "هل تحتاج إلى المساعدة؟",
+      "description": "فريق الدعم لدينا جاهز لمساعدتك. لا تتردد في التواصل معنا إذا كان لديك أي استفسار بخصوص طلبك.",
+      "whatsapp": "تواصل معنا عبر واتساب"
+    },
+    "actions": {
+      "continueShopping": "متابعة التسوق"
+    },
+    "footer": {
+      "thankYou": "شكراً لاختيارك",
+      "madeWith": "نقدّر ثقتك بنا ❤️"
+    }
+  }
+}

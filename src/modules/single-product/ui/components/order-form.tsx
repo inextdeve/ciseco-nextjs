@@ -8,7 +8,10 @@ import { MapsLocation01Icon, SmartPhone01Icon, User02FreeIcons } from '@hugeicon
 import { HugeiconsIcon } from '@hugeicons/react'
 import { useMutation } from '@tanstack/react-query'
 import { CheckCircleIcon } from 'lucide-react'
+import { useTranslations } from 'next-intl'
+import { useRouter } from 'next/navigation'
 import { useState } from 'react'
+import { SHIPPING_PRICE } from '../views/single-product-view'
 import ProductOptionSelector from './product-option-selector'
 
 interface OrderFormProps {
@@ -22,14 +25,14 @@ const initialFormData = {
   productOption: 'id-1-pack-x-4',
 }
 
-const SHIPPING_PRICE = 40
-
 export const OrderForm = ({ product }: OrderFormProps) => {
+  const t = useTranslations('SinglePageProduct.orderForm')
+  const router = useRouter()
   const trpc = useTRPC()
   const addSPPOrder = useMutation(
     trpc.sppOrders.insert.mutationOptions({
-      onSuccess: () => {
-        console.log('Success !')
+      onSuccess: (order) => {
+        router.push(`/single-product/success?order_id=${order.id}`)
       },
     })
   )
@@ -52,6 +55,7 @@ export const OrderForm = ({ product }: OrderFormProps) => {
         <div className="mt-10 max-w-3xl grow space-y-7 md:mt-0 md:pl-2">
           <Field>
             <ProductOptionSelector
+              currency={t('pricing.currency')}
               value={formData.productOption}
               onChange={(value) => setFormData({ ...formData, productOption: value })}
               name="product-option"
@@ -60,33 +64,32 @@ export const OrderForm = ({ product }: OrderFormProps) => {
               options={[
                 {
                   id: 'id-1-pack-x-4',
-                  image: product.featuredImage.src,
+                  image: product.featuredImage[0].src,
                   price: product.price * 4 + SHIPPING_PRICE,
-                  title: 'Pack x4',
-                  subtitle: 'Most popular',
-                  badge: 'best value',
-                  compareAtPrice: (product.price * 4 + SHIPPING_PRICE) * 2,
+                  title: t('pricing.pack') + ' x4',
+                  badge: t('pricing.mostOrdered'),
+                  compareAtPrice: (product.price * 4 + SHIPPING_PRICE) * 2 + 20,
                 },
                 {
                   id: 'id-2-pack-x-2',
-                  image: product.featuredImage.src,
+                  image: product.featuredImage[0].src,
                   price: product.price * 2 + SHIPPING_PRICE,
-                  title: 'Pack x2',
-                  compareAtPrice: (product.price * 2 + SHIPPING_PRICE) * 2,
+                  title: t('pricing.pack') + ' x2',
+                  compareAtPrice: (product.price * 2 + SHIPPING_PRICE) * 2 + 10,
                 },
               ]}
             />
           </Field>
           <Field>
             <Label id="order-name-label" htmlFor="order-name-input">
-              Full name
+              {t('fullName.label')}
             </Label>
             <InputGroup>
               <HugeiconsIcon data-slot="icon" icon={User02FreeIcons} size={16} />
               <Input
                 id="order-name-input"
                 name="fullName"
-                placeholder="Enter your full name"
+                placeholder={t('fullName.placeholder')}
                 value={formData?.fullName}
                 onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
                 required
@@ -94,12 +97,12 @@ export const OrderForm = ({ product }: OrderFormProps) => {
             </InputGroup>
           </Field>
           <Field>
-            <Label>Address</Label>
+            <Label>{t('address.label')}</Label>
             <InputGroup>
               <HugeiconsIcon data-slot="icon" icon={MapsLocation01Icon} size={16} />
               <Input
                 name="address"
-                placeholder="Enter your address"
+                placeholder={t('address.placeholder')}
                 value={formData?.address!}
                 onChange={(e) => setFormData({ ...formData, address: e.target.value })}
                 required
@@ -109,12 +112,12 @@ export const OrderForm = ({ product }: OrderFormProps) => {
 
           {/* ---- */}
           <Field>
-            <Label>Phone number</Label>
+            <Label>{t('phone.label')}</Label>
             <InputGroup>
               <HugeiconsIcon data-slot="icon" icon={SmartPhone01Icon} size={16} />
               <Input
                 name="phone"
-                placeholder="06 33 888 232"
+                placeholder={t('phone.placeholder')}
                 value={formData?.phone!}
                 onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                 required
@@ -133,14 +136,14 @@ export const OrderForm = ({ product }: OrderFormProps) => {
               {addSPPOrder.isPending && (
                 <span className="size-4 animate-spin rounded-full border-2 border-white/40 border-t-white" />
               )}
-              {addSPPOrder.isPending ? 'Placing your order…' : `Order now`}
+              {addSPPOrder.isPending ? t('orderStatus.placingOrder') : t('orderStatus.title')}
             </ButtonPrimary>
           </div>
         </div>
       </Fieldset>
       <p className="flex items-center justify-center gap-1.5 pt-3 text-xs text-gray-500">
         <CheckCircleIcon className="size-3.5 text-[#387a2f]" />
-        Cash on delivery — pay when your order arrives
+        {t('deliveryOffer')}
       </p>
     </form>
   )

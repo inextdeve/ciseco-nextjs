@@ -1,4 +1,5 @@
 import { ShoppingBag } from 'lucide-react'
+import { useTranslations } from 'next-intl'
 import { OrderItem } from '../../../types'
 
 interface Props {
@@ -7,25 +8,22 @@ interface Props {
 }
 
 export default function OrderSummary({ items, total }: Props) {
+  const t = useTranslations('successPage.order')
   return (
     <div className="rounded-2xl bg-white p-6 shadow-sm">
       <h3 className="flex items-center gap-2 text-lg font-bold">
         <ShoppingBag size={20} />
-        Your Order
+        {t('title')}
       </h3>
 
       <div className="mt-5 space-y-4">
         {items.map((item, index) => (
           <div key={index} className="flex justify-between border-b pb-4">
-            <div>
-              <p className="font-semibold">{item.name}</p>
+            <p className="max-w-[80%] truncate font-semibold">{item.name}</p>
 
-              {/* <p className="text-sm text-slate-500">
-                SKU: {item.sku} · Qty: {item.quantity}
-              </p> */}
-            </div>
-
-            <p className="font-bold">DH {item.price.toFixed(2)}</p>
+            <p className="font-bold">
+              {t('currency')} {item.price}
+            </p>
           </div>
         ))}
       </div>
@@ -38,15 +36,17 @@ export default function OrderSummary({ items, total }: Props) {
         </div> */}
 
         <div className="flex justify-between">
-          <span>Delivery</span>
+          <span>{t('delivery')}</span>
 
-          <span className="font-semibold text-green-600">Free</span>
+          <span className="font-semibold text-green-600">{t('freeDelivery')}</span>
         </div>
 
         <div className="flex justify-between border-t pt-3 text-lg font-bold">
-          <span>Total</span>
+          <span>{t('total')}</span>
 
-          <span>DH {total.toFixed(2)}</span>
+          <span>
+            {t('currency')} {total}
+          </span>
         </div>
       </div>
     </div>

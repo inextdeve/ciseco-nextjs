@@ -1,8 +1,10 @@
 import { MapPin, User, Wallet } from 'lucide-react'
 
+import { useTranslations } from 'next-intl'
 import { CustomerInfo } from '../../../types'
 
 export default function ShippingInfo({ customer }: { customer: CustomerInfo }) {
+  const t = useTranslations('successPage.shipping')
   const rows = [
     {
       icon: <User />,
@@ -12,18 +14,18 @@ export default function ShippingInfo({ customer }: { customer: CustomerInfo }) {
     {
       icon: <MapPin />,
       title: customer.address,
-      sub: customer.city,
+      sub: t('country'),
     },
     {
       icon: <Wallet />,
-      title: customer.paymentMethod,
-      sub: 'No online payment — pay on delivery',
+      title: t('cashOnDelivery'),
+      sub: t('cashOnDeliveryDescription'),
     },
   ]
 
   return (
     <div className="rounded-2xl bg-white p-6 shadow-sm">
-      <h3 className="mb-5 text-lg font-bold">Delivery Information</h3>
+      <h3 className="mb-5 text-lg font-bold">{t('title')}</h3>
 
       <div className="space-y-5">
         {rows.map((row, index) => (

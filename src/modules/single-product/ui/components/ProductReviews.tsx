@@ -1,17 +1,10 @@
 'use client'
 
 import ReviewItem from '@/components/ReviewItem'
-import StarReview from '@/components/StarReview'
 import { TReview } from '@/data/data'
-import { Button } from '@/shared/Button/Button'
-import { Dialog, DialogActions, DialogBody, DialogDescription, DialogTitle } from '@/shared/dialog'
-import { Field, Fieldset, Label } from '@/shared/fieldset'
-import { Textarea } from '@/shared/textarea'
 import { StarIcon } from '@heroicons/react/24/solid'
-import { MessageAdd01Icon } from '@hugeicons/core-free-icons'
-import { HugeiconsIcon } from '@hugeicons/react'
 import clsx from 'clsx'
-import Form from 'next/form'
+import { useTranslations } from 'next-intl'
 import React from 'react'
 
 const ProductReviews = ({
@@ -25,6 +18,8 @@ const ProductReviews = ({
   rating?: number
   reviewNumber?: number
 }) => {
+  const t = useTranslations('SinglePageProduct')
+
   const [isOpen, setIsOpen] = React.useState(false)
 
   const handleSubmit = async (formData: FormData) => {
@@ -51,7 +46,7 @@ const ProductReviews = ({
         <h2 className="flex scroll-mt-8 items-center text-2xl font-semibold" id="reviews">
           <StarIcon className="mb-0.5 size-7" />
           <span className="ml-1.5">
-            {rating && `${rating}`} {reviewNumber && ` · ${reviewNumber}`} Reviews
+            {rating && `${rating}`} {reviewNumber && ` · ${reviewNumber}`} {t('reviews')}
           </span>
         </h2>
 
@@ -59,7 +54,7 @@ const ProductReviews = ({
         <div className="mt-10">
           <div className="grid grid-cols-1 gap-x-14 gap-y-11 md:grid-cols-2 lg:gap-x-28">
             {reviews.map((review) => (
-              <ReviewItem key={review.id} data={review} />
+              <ReviewItem key={review.id} data={{ ...review, date: '' }} />
             ))}
           </div>
         </div>

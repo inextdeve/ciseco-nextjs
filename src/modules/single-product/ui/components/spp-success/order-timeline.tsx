@@ -1,28 +1,31 @@
 import { Check, Home, Phone, Truck } from 'lucide-react'
-
-const steps = [
-  {
-    icon: <Check />,
-    label: 'Order received',
-  },
-  {
-    icon: <Phone />,
-    label: 'Confirmation call',
-  },
-  {
-    icon: <Truck />,
-    label: 'Shipping',
-  },
-  {
-    icon: <Home />,
-    label: 'Delivered',
-  },
-]
+import { useTranslations } from 'next-intl'
 
 export default function OrderTimeline() {
+  const t = useTranslations('successPage.timeline')
+
+  const steps = [
+    {
+      icon: <Check />,
+      label: t('steps.received'),
+    },
+    {
+      icon: <Phone />,
+      label: t('steps.confirmation'),
+    },
+    {
+      icon: <Truck />,
+      label: t('steps.shipping'),
+    },
+    {
+      icon: <Home />,
+      label: t('steps.delivered'),
+    },
+  ]
+
   return (
     <div className="rounded-2xl bg-white p-6 shadow-sm">
-      <h3 className="mb-6 text-lg font-bold">What happens next?</h3>
+      <h3 className="mb-6 text-lg font-bold">{t('title')}</h3>
 
       <div className="flex justify-between">
         {steps.map((step, index) => (
@@ -42,7 +45,7 @@ export default function OrderTimeline() {
 
       <div className="mt-6 flex gap-2 rounded-xl bg-slate-50 p-4 text-sm text-slate-600">
         {/* <Info size={18} /> */}
-        Our team will call you shortly to confirm your order. Please stay available.
+        {t('message')}
       </div>
     </div>
   )

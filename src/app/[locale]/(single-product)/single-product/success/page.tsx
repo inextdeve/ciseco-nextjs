@@ -1,6 +1,5 @@
 import SPPSucessView from '@/modules/single-product/ui/views/spp-success-view'
 import { getQueryClient, trpc } from '@/trpc/server'
-import { getTranslations } from 'next-intl/server'
 import { redirect } from 'next/navigation'
 
 type PageProps = {
@@ -8,7 +7,6 @@ type PageProps = {
 }
 
 const Page = async ({ searchParams }: PageProps) => {
-  const t = await getTranslations('Home')
   const orderId = (await searchParams).order_id
 
   if (!orderId) {
@@ -31,11 +29,11 @@ const Page = async ({ searchParams }: PageProps) => {
         name: order.fullName,
         phone: order.phone,
         address: order.address,
-        city: t('description'),
+        city: 'Maroc',
         paymentMethod: 'Cash On Delivery',
       }}
       total={order.productPrice}
-      whatsappUrl="https://we.was.com"
+      whatsappUrl="https://api.whatsapp.com/send?phone=212720277895"
     />
   )
 }

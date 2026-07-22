@@ -1,5 +1,6 @@
-import { CheckCircle, ShoppingBag } from 'lucide-react'
+import { CheckCircle } from 'lucide-react'
 
+import { useTranslations } from 'next-intl'
 import { SuccessPageProps } from '../../types'
 import OrderSummary from '../components/spp-success/order-summary'
 import OrderTimeline from '../components/spp-success/order-timeline'
@@ -7,6 +8,7 @@ import ShippingInfo from '../components/spp-success/shipping-info'
 import SupportCard from '../components/spp-success/support-card'
 
 export default function SPPSucessView({ orderId, items, customer, total, whatsappUrl }: SuccessPageProps) {
+  const t = useTranslations('successPage')
   return (
     <div className="min-h-screen bg-slate-50 px-4 py-10">
       <div className="mx-auto max-w-xl space-y-6">
@@ -16,13 +18,12 @@ export default function SPPSucessView({ orderId, items, customer, total, whatsap
             <CheckCircle size={42} />
           </div>
 
-          <h1 className="mt-5 text-3xl font-bold text-slate-900">Thank you for your order!</h1>
+          <h1 className="mt-5 text-3xl font-bold text-slate-900">{t('hero.title')}</h1>
 
-          <p className="mt-3 text-slate-600">We received your order and will contact you soon to confirm delivery.</p>
+          <p className="mt-3 text-slate-600">{t('hero.description')}</p>
 
           <div className="mt-5 inline-flex rounded-full bg-white px-5 py-2 text-sm shadow">
-            Order number:
-            <strong className="ml-2">#{orderId}</strong>
+            {t('hero.orderNumber')}:<strong className="ml-2">#{orderId}</strong>
           </div>
         </section>
 
@@ -34,16 +35,16 @@ export default function SPPSucessView({ orderId, items, customer, total, whatsap
 
         <SupportCard whatsappUrl={whatsappUrl} orderId={orderId} />
 
-        <a
+        {/* <a
           href="/"
           className="flex items-center justify-center gap-2 rounded-xl bg-black px-6 py-4 font-semibold text-white transition hover:bg-slate-800"
         >
           <ShoppingBag size={20} />
-          Continue Shopping
-        </a>
+          {t('actions.continueShopping')}
+        </a> */}
 
         <p className="pt-5 text-center text-xs text-slate-400">
-          Thank you for choosing
+          {t('footer.thankYou')}
           <strong className="text-slate-600"> Blissdor ❤️</strong>
         </p>
       </div>

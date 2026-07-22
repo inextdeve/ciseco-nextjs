@@ -1,4 +1,5 @@
 import { Check, Package, Sparkles } from 'lucide-react'
+import { useTranslations } from 'next-intl'
 import { useId, useState } from 'react'
 
 export type Accent = 'emerald' | 'blue' | 'violet' | 'amber'
@@ -103,11 +104,14 @@ export default function ProductOptionSelector({
 }
 
 function OptionCard({ option, name, inputId, isSelected, onSelect, currency, locale, accent }: OptionCardProps) {
+  const t = useTranslations('SinglePageProduct.orderForm.pricing')
+
   const palette = ACCENTS[accent]
 
   const discount = getDiscount(option.price, option.compareAtPrice)
 
-  const subtitle = option.subtitle ?? (discount ? `Save ${formatPrice(discount.amount, currency, locale)}` : null)
+  const subtitle =
+    option.subtitle ?? (discount ? `${t('save')} ${formatPrice(discount.amount, currency, locale)}` : null)
 
   return (
     <div className="relative">
@@ -198,7 +202,7 @@ function formatPrice(amount: number, currency: string, locale: string): string {
     maximumFractionDigits: 2,
   }).format(amount)
 
-  return `${currency} ${formatted}`
+  return `${formatted} ${currency}`
 }
 
 function getDiscount(price: number, compareAtPrice?: number): Discount | null {
