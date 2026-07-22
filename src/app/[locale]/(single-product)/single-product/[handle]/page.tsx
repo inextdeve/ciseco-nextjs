@@ -1,4 +1,4 @@
-import { getProductDetailByHandle, getProductReviews, getProducts, getSPProductByHandle } from '@/data/data'
+import { getSPProductByHandle } from '@/data/data'
 import { SingleProductView } from '@/modules/single-product/ui/views/single-product-view'
 import { getQueryClient, trpc } from '@/trpc/server'
 import { Metadata } from 'next'
@@ -16,7 +16,7 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }: { params: Promise<{ handle: string }> }): Promise<Metadata> {
   const { handle } = await params
-  const product = await getProductDetailByHandle(handle)
+  const product = await getSPProductByHandle(handle)
   const title = product?.title || 'product detail'
   const description = product?.description || 'product detail page'
   return {
@@ -25,7 +25,6 @@ export async function generateMetadata({ params }: { params: Promise<{ handle: s
   }
 }
 
-
 export default async function Page({ params }: { params: Promise<{ handle: string }> }) {
   const { handle } = await params
   const product = await getSPProductByHandle(handle)
@@ -33,8 +32,6 @@ export default async function Page({ params }: { params: Promise<{ handle: strin
   if (!product.id) {
     return notFound()
   }
-
-
 
   return <SingleProductView product={product} />
 }
